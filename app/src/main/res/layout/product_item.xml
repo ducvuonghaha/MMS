@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    android:layout_margin="4dp"
+    android:background="@color/colorBackground"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:background="#504444"
+        android:layout_width="160dp"
+        android:layout_height="250dp"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <ImageView
+            android:src="@drawable/quyan_f"
+            android:layout_width="140dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center"
+            android:id="@+id/imgProduct"
+            />
+
+        <TextView
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="#E1C4E9"
+            android:layout_marginLeft="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvNameProduct"
+            android:text="Quỷ Ấn"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:textSize="10dp"
+            android:textColor="#F5EDED"
+            android:layout_marginLeft="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvTime"
+            android:text="145 phút"
+            android:layout_marginTop="5dp"/>
+
+        <LinearLayout
+            android:layout_marginLeft="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textSize="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9.990.000"
+                android:id="@+id/tvPriceProduct"
+                android:textStyle="bold"
+                android:textColor="@color/colorRed"
+                />
+            <TextView
+                android:textSize="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đ"
+                android:layout_marginLeft="3dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorRed"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

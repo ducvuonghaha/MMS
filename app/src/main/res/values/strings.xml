@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">MMS</string>
+    <string name="facebook_app_id">532225517610366</string>
+    <string name="fb_login_protocol_scheme">fb532225517610366</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Mall</string>
+    <string name="title_notifications">Thông báo</string>
+    <string name="title_profile">Cá nhân</string>
+
+    <!--Slider-->
+    <string name="slider_success_order">ĐA DẠNG THỂ LOẠI</string>
+    <string name="slider_description">App cung cấp cho người dùng không chỉ đầy đủ những bộ phim và bài nhạc hot nhất mà còn đảm bảo chất lượng luôn đi đầu so với thị trường.</string>
+    <string name="slider_btn_discover">KHÁM PHÁ NGAY</string>
+
+    <!--LoginActivity-->
+    <string name="acti_login_welcome">Welcome Back!</string>
+    <string name="acti_login_tvUsername">Tên đăng nhập</string>
+    <string name="acti_login_tvPassword">Mật khẩu</string>
+    <string name="acti_login_btnSignIn">Đăng nhập</string>
+    <string name="acti_login_forgetPass">Quên mật khẩu?</string>
+    <string name="acti_login_noAccount">Chưa có tài khoản?</string>
+    <string name="acti_login_signUp">Đăng kí ngay</string>
+    <string name="acti_login_messSignInSucess">Vui lòng nhập đầy đủ thông tin</string>
+    <string name="lgactivity_loginsuccess">Đăng nhập thành công</string>
+    <string name="acti_login_warnEmpty">Vui lòng nhập đầy đủ thông tin</string>
+    <string name="acti_login_wronguserpass">Tên tài khoản hoặc mật khẩu không tồn tại</string>
+    <string name="acti_login_successlogin">Đăng nhập thành công</string>
+
+    <!--SignUpActivity-->
+    <string name="acti_signup_username">Tên đăng nhập</string>
+    <string name="acti_signup_fullname">Họ và tên</string>
+    <string name="acti_signup_address">Địa chỉ</string>
+    <string name="acti_signup_phone">Số điện thoại</string>
+    <string name="acti_signup_pass">Mật khẩu</string>
+    <string name="acti_signup_repass">Nhập lại mật khẩu</string>
+    <string name="acti_signup_emptyUser">Vui lòng nhập tên đăng nhập</string>
+    <string name="acti_signup_emptyfullname">Vui lòng nhập họ tên</string>
+    <string name="acti_signup_emptyAdress">Vui lòng nhập địa chỉ</string>
+    <string name="acti_signup_emptyPhone">Số điện thoại phải có 10 ký tự</string>
+    <string name="acti_signup_warnLengthPass">Mật khẩu phải trên 8 ký tự</string>
+    <string name="acti_signup_warnCheckRepass">Mật khẩu không trùng</string>
+    <string name="acti_signup_successSignUp">Đăng ký thành công</string>
+    <string name="acti_signup_warnCheckUser">Tên đăng nhập này đã có người sử dụng</string>
+    <string name="acti_signup_warnPhone">Vui lòng nhập SĐT là số</string>
+
+</resources>
+
+
+
