@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.mms.database.Database;
 import com.example.mms.model.User;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.example.mms.database.Constant.USER_ADDRESS;
 import static com.example.mms.database.Constant.USER_FULL_NAME;
 import static com.example.mms.database.Constant.USER_NAME;
@@ -170,5 +173,32 @@ public class UserDAO {
             }
         }
         return address;
+    }
+
+
+    //Lấy tất cả user
+    public List<User> getAllUserlist() {
+        List<User> userList = new ArrayList<>();
+        String query = "SELECT * FROM " + USER_TABLE;
+        SQLiteDatabase sqLiteDatabase = database.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        if (cursor != null) {
+            if (cursor.getCount() > 0 ) {
+                cursor.moveToFirst();
+                while (!cursor.isAfterLast()) {
+                    User user = new User();
+                    user.setUSER_NAME(cursor.getString(0));
+                    user.setUSER_PASSWORD(cursor.getString(1));
+                    user.setUSER_ADDRESS(cursor.getString(2));
+                    user.setUSER_PHONE(cursor.getString(3));
+                    user.setUSER_FULL_NAME(cursor.getString(4));
+                    userList.add(user);
+                    cursor.moveToNext();
+                }
+                cursor.close();
+                sqLiteDatabase.close();
+            }
+        }
+        return userList;
     }
 }

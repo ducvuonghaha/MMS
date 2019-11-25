@@ -43,6 +43,24 @@
     <string name="acti_signup_warnCheckUser">Tên đăng nhập này đã có người sử dụng</string>
     <string name="acti_signup_warnPhone">Vui lòng nhập SĐT là số</string>
 
+
+    <!--Đặt hàng thành công-->
+    <string name="acti_success_order">Đặt hàng thành công</string>
+    <string name="acti_success_order_description">Đơn hang của bạn đã được đặt thành công. Vui lòng kiểm tra Đơn hàng của tôi để biết thêm chi tiết !</string>
+    <string name="acti_cart_delproduct">Xóa sản phẩm thành công</string>
+    <string name="acti_cart_warning">Số lượng phải lớn hơn 0</string>
+    <string name="acti_payment_successVoucher">Mã khuyến mại đã được áp dụng</string>
+    <string name="acti_payment_warningVoucher">Mã khuyến mại không tồn tại</string>
+
+    <!--CartActivity-->
+    <string name="acti_cart_tv_thanhtien">Thành tiền</string>
+    <string name="acti_cart_title">Giỏ hàng</string>
+    <string name="acti_cart_tv_sumprice">29.990.000</string>
+    <string name="acti_cart_tv_freeship">Miễn phí vận chuyển</string>
+    <string name="acti_cart_btnPayment">Thanh toán</string>
+    <string name="acti_cart_mesWarning">Vui lòng chọn ít nhất một sản phẩm để thanh toán</string>
+
+
 </resources>
 
 

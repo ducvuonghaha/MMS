@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -107,7 +106,6 @@ public class HomeFragment extends Fragment {
         gridLayoutManager = new GridLayoutManager(getContext(), 2);
         productDAO = new ProductDAO(getContext());
         productList = productDAO.getAllProduct("Hot");
-        Toast.makeText(getActivity(), String.valueOf(productList.size()), Toast.LENGTH_SHORT).show();
         mmsDealsAdapter = new MMSDealsAdapter(getContext(), productList);
         recyclerView.setAdapter(mmsDealsAdapter);
         recyclerView.setLayoutManager(gridLayoutManager);

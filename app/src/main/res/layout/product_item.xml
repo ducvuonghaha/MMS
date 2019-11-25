@@ -2,15 +2,16 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvLayout"
     app:cardCornerRadius="5dp"
-    android:layout_margin="4dp"
-    android:background="@color/colorBackground"
+    android:layout_margin="8dp"
+    android:background="@drawable/background"
     android:layout_height="wrap_content">
 
     <LinearLayout
         android:background="#504444"
         android:layout_width="160dp"
-        android:layout_height="250dp"
+        android:layout_height="280dp"
         android:orientation="vertical"
         android:padding="8dp">
 
@@ -27,8 +28,8 @@
             android:textStyle="bold"
             android:textColor="#E1C4E9"
             android:layout_marginLeft="14dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
             android:id="@+id/tvNameProduct"
             android:text="Quỷ Ấn"
             android:layout_marginTop="5dp"/>

@@ -26,6 +26,7 @@ public class MyOrdersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_orders);
+        initView();
     }
 
     public void initView(){
@@ -33,6 +34,7 @@ public class MyOrdersActivity extends AppCompatActivity {
         myOrdersList = new ArrayList<>();
         productCartDAO = new ProductCartDAO(this);
         myOrdersList = productCartDAO.getAllMyOrders(getRootUsername());
+
         Toast.makeText(this, String.valueOf(myOrdersList.size()), Toast.LENGTH_SHORT).show();
         linearLayoutManager = new LinearLayoutManager(this);
         myOrdersAdapter = new MyOrdersAdapter(this,myOrdersList);

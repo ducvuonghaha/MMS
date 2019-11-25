@@ -10,16 +10,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.mms.R;
+import com.example.mms.base.BaseActivity;
 import com.example.mms.dao.ProductCartDAO;
 import com.example.mms.dao.ProductDAO;
 import com.example.mms.model.ProductCart;
 
 import java.io.ByteArrayInputStream;
 
-public class ProductDetailActivity extends AppCompatActivity {
+public class ProductDetailActivity extends BaseActivity {
 
     private TextView tvSPECIES;
 
@@ -32,6 +31,9 @@ public class ProductDetailActivity extends AppCompatActivity {
     private ProductDAO productDAO;
     private ProductCartDAO productCartDAO;
     private Button btnAddProduct;
+    private Button btnTrailer;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +41,17 @@ public class ProductDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product_detail);
         initView();
 
+        btnTrailer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProductDetailActivity.this, TrailerActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         final Intent intent = getIntent();
-        tvSPECIES.setText("" + intent.getStringExtra("type"));
+        tvSPECIES.setText("Phim " + intent.getStringExtra("species"));
 
         final byte[] image = productDAO.getImageProduct(intent.getStringExtra("id"));
         final String name = intent.getStringExtra("name");
@@ -78,6 +87,7 @@ public class ProductDetailActivity extends AppCompatActivity {
             String price1 = intent.getStringExtra("priceproduct");
             int priceproduct = Integer.parseInt(price1);
             if (productCartDAO.insertProductCart(new ProductCart(null, name, getRootUsername(), 1, priceproduct, image)) >= 0) {
+                showMessegeSuccess("Thêm vào giỏ hàng thành công");
                 sendBroadcast(new Intent("update"));
             }
 
@@ -87,6 +97,7 @@ public class ProductDetailActivity extends AppCompatActivity {
     }
 
     public void initView() {
+        btnTrailer = (Button) findViewById(R.id.btnTrailer);
         tvSPECIES = (TextView) findViewById(R.id.tvSPECIES);
         productCartDAO = new ProductCartDAO(this);
         productDAO = new ProductDAO(this);

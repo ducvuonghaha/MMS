@@ -17,7 +17,7 @@ import static com.example.mms.database.Constant.VOUCHER_TABLE;
 public class Database extends SQLiteOpenHelper {
 
     public Database(Context context) {
-        super(context, "mms4.sql", null, 2);
+        super(context, "mms8.sql", null, 2);
     }
 
     @Override

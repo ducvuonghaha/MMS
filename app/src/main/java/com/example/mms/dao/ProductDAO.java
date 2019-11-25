@@ -17,6 +17,7 @@ import static com.example.mms.database.Constant.PRODUCT_IMAGE;
 import static com.example.mms.database.Constant.PRODUCT_NAME;
 import static com.example.mms.database.Constant.PRODUCT_PRICE;
 import static com.example.mms.database.Constant.PRODUCT_SOLDNUMBER;
+import static com.example.mms.database.Constant.PRODUCT_SPECIES;
 import static com.example.mms.database.Constant.PRODUCT_TABLE;
 import static com.example.mms.database.Constant.PRODUCT_TYPE;
 
@@ -32,6 +33,7 @@ public class ProductDAO {
         ContentValues contentValues = new ContentValues();
         contentValues.put(PRODUCT_ID, product.PRODUCT_ID);
         contentValues.put(PRODUCT_NAME, product.PRODUCT_NAME);
+        contentValues.put(PRODUCT_SPECIES, product.PRODUCT_SPECIES);
         contentValues.put(PRODUCT_PRICE, product.PRODUCT_PRICE);
         contentValues.put(PRODUCT_IMAGE, product.PRODUCT_IMAGE);
         contentValues.put(PRODUCT_TYPE, product.PRODUCT_TYPE);
@@ -59,13 +61,14 @@ public class ProductDAO {
                 while (!cursor.isAfterLast()) {
                     String PRODUCT_ID_ = cursor.getString(cursor.getColumnIndex(PRODUCT_ID));
                     String PRODUCT_NAME_ = cursor.getString(cursor.getColumnIndex(PRODUCT_NAME));
+                    String PRODUCT_SPECIES_ = cursor.getString(cursor.getColumnIndex(PRODUCT_SPECIES));
                     String PRODUCT_DESCRIPTION_ = cursor.getString(cursor.getColumnIndex(PRODUCT_DESCRIPTION));
                     int PRODUCT_PRICE_ = cursor.getInt(cursor.getColumnIndex(PRODUCT_PRICE));
                     int PRODUCT_SOLDNUMBER_ = cursor.getInt(cursor.getColumnIndex(PRODUCT_SOLDNUMBER));
                     String PRODUCT_TYPE_ = cursor.getString(cursor.getColumnIndex(PRODUCT_TYPE));
                     byte[] PRODUCT_IMAGE_ = cursor.getBlob(cursor.getColumnIndex(PRODUCT_IMAGE));
 
-                    Product product = new Product(PRODUCT_ID_, PRODUCT_NAME_, PRODUCT_TYPE_, PRODUCT_SOLDNUMBER_, PRODUCT_PRICE_, PRODUCT_IMAGE_, PRODUCT_DESCRIPTION_);
+                    Product product = new Product(PRODUCT_ID_, PRODUCT_NAME_, PRODUCT_SPECIES_, PRODUCT_TYPE_, PRODUCT_SOLDNUMBER_, PRODUCT_PRICE_, PRODUCT_IMAGE_, PRODUCT_DESCRIPTION_);
 
                     //add user vao array users;
                     courseList.add(product);
@@ -92,13 +95,14 @@ public class ProductDAO {
                 while (!cursor.isAfterLast()) {
                     String PRODUCT_ID_ = cursor.getString(cursor.getColumnIndex(PRODUCT_ID));
                     String PRODUCT_NAME_ = cursor.getString(cursor.getColumnIndex(PRODUCT_NAME));
+                    String PRODUCT_SPECIES_ = cursor.getString(cursor.getColumnIndex(PRODUCT_SPECIES));
                     String PRODUCT_DESCRIPTION_ = cursor.getString(cursor.getColumnIndex(PRODUCT_DESCRIPTION));
                     int PRODUCT_PRICE_ = cursor.getInt(cursor.getColumnIndex(PRODUCT_PRICE));
                     int PRODUCT_SOLDNUMBER_ = cursor.getInt(cursor.getColumnIndex(PRODUCT_SOLDNUMBER));
                     String PRODUCT_TYPE_ = cursor.getString(cursor.getColumnIndex(PRODUCT_TYPE));
                     byte[] PRODUCT_IMAGE_ = cursor.getBlob(cursor.getColumnIndex(PRODUCT_IMAGE));
 
-                    Product product = new Product(PRODUCT_ID_, PRODUCT_NAME_, PRODUCT_TYPE_, PRODUCT_SOLDNUMBER_, PRODUCT_PRICE_, PRODUCT_IMAGE_, PRODUCT_DESCRIPTION_);
+                    Product product = new Product(PRODUCT_ID_, PRODUCT_NAME_, PRODUCT_SPECIES_, PRODUCT_TYPE_, PRODUCT_SOLDNUMBER_, PRODUCT_PRICE_, PRODUCT_IMAGE_, PRODUCT_DESCRIPTION_);
 
                     //add user vao array users;
                     courseList.add(product);
@@ -124,13 +128,14 @@ public class ProductDAO {
                 while (!cursor.isAfterLast()) {
                     String PRODUCT_ID_ = cursor.getString(cursor.getColumnIndex(PRODUCT_ID));
                     String PRODUCT_NAME_ = cursor.getString(cursor.getColumnIndex(PRODUCT_NAME));
+                    String PRODUCT_SPECIES_ = cursor.getString(cursor.getColumnIndex(PRODUCT_SPECIES));
                     String PRODUCT_DESCRIPTION_ = cursor.getString(cursor.getColumnIndex(PRODUCT_DESCRIPTION));
                     int PRODUCT_PRICE_ = cursor.getInt(cursor.getColumnIndex(PRODUCT_PRICE));
                     int PRODUCT_SOLDNUMBER_ = cursor.getInt(cursor.getColumnIndex(PRODUCT_SOLDNUMBER));
                     String PRODUCT_TYPE_ = cursor.getString(cursor.getColumnIndex(PRODUCT_TYPE));
                     byte[] PRODUCT_IMAGE_ = cursor.getBlob(cursor.getColumnIndex(PRODUCT_IMAGE));
 
-                    Product product = new Product(PRODUCT_ID_, PRODUCT_NAME_, PRODUCT_TYPE_, PRODUCT_SOLDNUMBER_, PRODUCT_PRICE_, PRODUCT_IMAGE_, PRODUCT_DESCRIPTION_);
+                    Product product = new Product(PRODUCT_ID_, PRODUCT_NAME_, PRODUCT_SPECIES_, PRODUCT_TYPE_, PRODUCT_SOLDNUMBER_, PRODUCT_PRICE_, PRODUCT_IMAGE_, PRODUCT_DESCRIPTION_);
 
                     //add user vao array users;
                     courseList.add(product);

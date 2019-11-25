@@ -32,10 +32,16 @@
                 android:id="@+id/tvNameMyOrders"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="iPad WiFi 128GB New 2018
-Pink"
+                android:text="Quỷ Ấn"
                 android:textColor="@color/colorBlack"
                 android:textSize="17dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="145 phút"
+                android:textColor="#928D8D"
+                android:textSize="12dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -63,16 +69,6 @@ Pink"
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/tvStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="8dp"
-                android:text="Đang vận chuyển"
-                android:textColor="#00eaff"
-                android:textSize="15dp"
-                android:textStyle="bold" />
 
 
         </LinearLayout>

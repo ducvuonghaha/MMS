@@ -26,6 +26,7 @@ public class MMSDealsAdapter extends RecyclerView.Adapter<MMSDealsAdapter.Holder
 
     public Context context;
     public List<Product> productList;
+    int row_index = -1 ;
 
     public MMSDealsAdapter(Context context, List<Product> productList) {
         this.context = context;
@@ -41,17 +42,19 @@ public class MMSDealsAdapter extends RecyclerView.Adapter<MMSDealsAdapter.Holder
 
     @Override
     public void onBindViewHolder(@NonNull MMSDealsAdapter.Holder holder,final int i) {
+
         holder.product = productList.get(i);
         holder.tvNameProduct.setText(holder.product.PRODUCT_NAME);
         holder.tvPriceProduct.setText(decimalFormat.format(holder.product.PRODUCT_PRICE));
         holder.imgProduct.setImageBitmap(ByteArrayToBitmap(holder.product.PRODUCT_IMAGE));
-        holder.imgProduct.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ProductDetailActivity.class);
                 Product p = productList.get(i);
                 intent.putExtra("id",p.PRODUCT_ID);
                 intent.putExtra("name",p.PRODUCT_NAME);
+                intent.putExtra("species",p.PRODUCT_SPECIES);
                 intent.putExtra("type", p.PRODUCT_TYPE);
                 intent.putExtra("price",decimalFormat.format(p.PRODUCT_PRICE));
                 intent.putExtra("priceproduct",String.valueOf(p.PRODUCT_PRICE));
@@ -59,6 +62,7 @@ public class MMSDealsAdapter extends RecyclerView.Adapter<MMSDealsAdapter.Holder
                 context.startActivity(intent);
             }
         });
+
     }
 
     @Override
@@ -69,6 +73,7 @@ public class MMSDealsAdapter extends RecyclerView.Adapter<MMSDealsAdapter.Holder
     }
 
     public class Holder extends RecyclerView.ViewHolder {
+
         private TextView tvNameProduct;
         private TextView tvPriceProduct;
         private ImageView imgProduct;
