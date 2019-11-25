@@ -38,6 +38,7 @@ public class Constant {
     public static final String PRODUCT_SOLDNUMBER = "SoLuongDaBan";
     public static final String PRODUCT_PRICE = "GiaThanh";
     public static final String PRODUCT_IMAGE = "HinhAnh";
+    public static final String PRODUCT_VIDEO = "Video";
     public static final String PRODUCT_DESCRIPTION = "MoTa";
 
 
@@ -49,6 +50,7 @@ public class Constant {
             "" + PRODUCT_SOLDNUMBER + " INT," +
             "" + PRODUCT_PRICE + " INT," +
             "" + PRODUCT_IMAGE + " BLOB," +
+            "" + PRODUCT_VIDEO + " NVARCHAR(100)," +
             "" + PRODUCT_DESCRIPTION + " NVARCHAR(1000)" +
             ")";
 

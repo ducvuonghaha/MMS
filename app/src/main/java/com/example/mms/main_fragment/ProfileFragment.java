@@ -3,13 +3,8 @@ package com.example.mms.main_fragment;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Base64;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,19 +22,22 @@ import com.example.mms.R;
 import com.example.mms.activity.LoginActivity;
 import com.example.mms.activity.MyOrdersActivity;
 import com.example.mms.activity.MyVoucherActivity;
+import com.example.mms.activity.QuestionsActivity;
+import com.example.mms.activity.ShieldsActivity;
 import com.example.mms.dao.UserDAO;
 import com.example.mms.model.User;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 import es.dmoral.toasty.Toasty;
 
 import static android.content.Context.MODE_PRIVATE;
 
 public class ProfileFragment extends Fragment {
+    private LinearLayout llQuestions;
+    private LinearLayout llShields;
+
+
     private LinearLayout llMyOrders;
     private TextView tvFullName;
     private ShareDialog shareDialog;
@@ -60,6 +58,8 @@ public class ProfileFragment extends Fragment {
     }
 
     public void initView(View view) {
+        llQuestions = (LinearLayout) view.findViewById(R.id.llQuestions);
+        llShields = (LinearLayout) view.findViewById(R.id.llShields);
         llShareFacebook = view.findViewById(R.id.llShareFacebook);
         llMyVoucher = view.findViewById(R.id.llMyVoucher);
         llChangePasss = view.findViewById(R.id.llChangePass);
@@ -69,6 +69,23 @@ public class ProfileFragment extends Fragment {
         llMyOrders = view.findViewById(R.id.llMyOrders);
         llSignOut = view.findViewById(R.id.llSignOut);
         userDAO = new UserDAO(getContext());
+
+
+        llQuestions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), QuestionsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        llShields.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ShieldsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         llSignOut.setOnClickListener(new View.OnClickListener() {
             @Override

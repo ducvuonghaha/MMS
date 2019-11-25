@@ -129,8 +129,8 @@ public class HomeActivity extends BaseActivity {
         byte[] myvoucher = setByteArray(voucher);
         byte[] myvoucher1 = setByteArray(voucher1);
 
-        myVoucherDAO.insertVouchers(new MyVoucher("SALE50",getRootUsername(),"02/05/2019","Giảm giá 30% tất cả phim nhân ngày 30/04 - 1/5",0.5,myvoucher));
-        myVoucherDAO.insertVouchers(new MyVoucher("SALE30",getRootUsername(),"10/05/2019","Giảm giá 50% tất cả nhạc nhân ngày 30/04 - 1/5",0.7,myvoucher1));
+        myVoucherDAO.insertVouchers(new MyVoucher("SALE50",getRootUsername(),"20/11/2019","Giảm giá 30% tất cả phim nhân ngày Nhà Giáo",0.5,myvoucher));
+        myVoucherDAO.insertVouchers(new MyVoucher("SALE30",getRootUsername(),"24/12/2019","Giảm giá 50% tất cả nhạc nhân dịp Giáng Sinh",0.7,myvoucher1));
 
         Bitmap mms = convertDrawabletoBitmap(R.drawable.quyan_f);
         Bitmap mms1 = convertDrawabletoBitmap(R.drawable.it_f);
@@ -144,12 +144,20 @@ public class HomeActivity extends BaseActivity {
 
 
         productDAO.insertProduct(new Product("ID01", "Quỷ Ấn", "Kinh Dị","Hot",
-                100, 9000000, quyan_f,"A Bluebird in My Heart dựa trên tiểu thuyết The Dishwasher (Người Rửa Chén) của Dannie M Martin. Phim kể về câu chuyện của cựu tù là Daniel (Roland Moller), người làm công việc rửa chén trong nhà hàng và sống trong một nhà nghỉ cũ cố gắng để có một cuộc sống bình lặng. Tại đây, anh kết bạn với chủ nhà nghỉ là một người mẹ đơn thân Laurence (Veerle Baetens) và cô con gái Clara (Lola La Lann)."));
+                100, 9000000, quyan_f,"quyan","A Bluebird in My Heart dựa trên tiểu thuyết The Dishwasher (Người Rửa Chén) của Dannie M Martin. Phim kể về câu chuyện của cựu tù là Daniel (Roland Moller), người làm công việc rửa chén trong nhà hàng và sống trong một nhà nghỉ cũ cố gắng để có một cuộc sống bình lặng. Tại đây, anh kết bạn với chủ nhà nghỉ là một người mẹ đơn thân Laurence (Veerle Baetens) và cô con gái Clara (Lola La Lann)."));
 
-        productDAO.insertProduct(new Product("ID02", "Chú Hề Ma Quái 2", "Kinh Dị","Hot",
-                100, 899000, it_f,"It Chapter Two (Gã Hề Ma Quái 2) vẫn là câu chuyện về những cô cậu bé của nhóm The Losers Club, lúc này đã trưởng thành và đối mặt với vô số vấn đề trong cuộc sống. Chưa dừng lại ở đó, ám ảnh ma hề Pennywise cứ 27 năm lại xuất hiện một lần tại thị trấn Derry buộc 7 cô cậu bé ngày nào phải tiếp tục cuốn vào cuộc chạm trán tiếp theo giữa hai bên thiện và ác."));
-        productDAO.insertProduct(new Product("ID03", "Điều Ba Mẹ Không Kể", "Lãng Mạn","Hot",
-                100, 26900000, dieubamekhongke_f,"Cho Nam-bong và Lee Mae-ja là cặp vợ chồng già cùng mắc căn bệnh mất trí nhớ. Sau 45 năm chung sống, họ chẳng thể nhớ lần cuối mình từng hạnh phúc là khi nào. Tuy nhiên, khi ký ức dần mất đi, tình yêu và ước mơ từng bị bỏ quên của họ lại dần nhen nhóm lại."));
+//        productDAO.insertProduct(new Product("ID02", "Chú Hề Ma Quái 2", "Kinh Dị","Hot",
+//                100, 899000, it_f,"quyan","It Chapter Two (Gã Hề Ma Quái 2) vẫn là câu chuyện về những cô cậu bé của nhóm The Losers Club, lúc này đã trưởng thành và đối mặt với vô số vấn đề trong cuộc sống. Chưa dừng lại ở đó, ám ảnh ma hề Pennywise cứ 27 năm lại xuất hiện một lần tại thị trấn Derry buộc 7 cô cậu bé ngày nào phải tiếp tục cuốn vào cuộc chạm trán tiếp theo giữa hai bên thiện và ác."));
+//        productDAO.insertProduct(new Product("ID03", "Điều Ba Mẹ Không Kể", "Lãng Mạn","Hot",
+//                100, 26900000, dieubamekhongke_f,"quyan","Cho Nam-bong và Lee Mae-ja là cặp vợ chồng già cùng mắc căn bệnh mất trí nhớ. Sau 45 năm chung sống, họ chẳng thể nhớ lần cuối mình từng hạnh phúc là khi nào. Tuy nhiên, khi ký ức dần mất đi, tình yêu và ước mơ từng bị bỏ quên của họ lại dần nhen nhóm lại."));
+
+
+
+
+
+
+
+
 //        productDAO.insertProduct(new Product("ID04", "Đồng Hồ Apple Watch Series 4 GPS", "WakaDeals",
 //                100, 100, 11990000, wakadeal3,
 //                "Đồng Hồ Thông Minh Apple Watch Series 4 GPS Sport band VN/A sở hữu thiết kế không viền nhờ phần màn hình lớn hơn và được bo cong ở các góc. Nhờ vậy, kích thước của màn hình đã tăng 30%"));

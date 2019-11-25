@@ -42,7 +42,7 @@ public class MyVoucherActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rvMyVoucher);
         myVoucherList = new ArrayList<>();
         myVoucherDAO = new MyVoucherDAO(this);
-        myVoucherList = myVoucherDAO.getAllMyVouchers("meovuong");
+        myVoucherList = myVoucherDAO.getAllMyVouchers(getRootUsername());
         Toast.makeText(this, String.valueOf(myVoucherList.size()), Toast.LENGTH_SHORT).show();
         linearLayoutManager = new LinearLayoutManager(this);
         myVoucherAdapter = new MyVoucherAdapter(this,myVoucherList);

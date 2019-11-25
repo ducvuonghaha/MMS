@@ -20,6 +20,7 @@ import static com.example.mms.database.Constant.PRODUCT_SOLDNUMBER;
 import static com.example.mms.database.Constant.PRODUCT_SPECIES;
 import static com.example.mms.database.Constant.PRODUCT_TABLE;
 import static com.example.mms.database.Constant.PRODUCT_TYPE;
+import static com.example.mms.database.Constant.PRODUCT_VIDEO;
 
 public class ProductDAO {
     private Database database;
@@ -36,6 +37,7 @@ public class ProductDAO {
         contentValues.put(PRODUCT_SPECIES, product.PRODUCT_SPECIES);
         contentValues.put(PRODUCT_PRICE, product.PRODUCT_PRICE);
         contentValues.put(PRODUCT_IMAGE, product.PRODUCT_IMAGE);
+        contentValues.put(PRODUCT_VIDEO, product.PRODUCT_VIDEO);
         contentValues.put(PRODUCT_TYPE, product.PRODUCT_TYPE);
         contentValues.put(PRODUCT_SOLDNUMBER, product.PRODUCT_SOLDNUMBER);
         contentValues.put(PRODUCT_DESCRIPTION, product.PRODUCT_DESCRIPTION);
@@ -66,9 +68,10 @@ public class ProductDAO {
                     int PRODUCT_PRICE_ = cursor.getInt(cursor.getColumnIndex(PRODUCT_PRICE));
                     int PRODUCT_SOLDNUMBER_ = cursor.getInt(cursor.getColumnIndex(PRODUCT_SOLDNUMBER));
                     String PRODUCT_TYPE_ = cursor.getString(cursor.getColumnIndex(PRODUCT_TYPE));
+                    String PRODUCT_VIDEO_ = cursor.getString(cursor.getColumnIndex(PRODUCT_VIDEO));
                     byte[] PRODUCT_IMAGE_ = cursor.getBlob(cursor.getColumnIndex(PRODUCT_IMAGE));
 
-                    Product product = new Product(PRODUCT_ID_, PRODUCT_NAME_, PRODUCT_SPECIES_, PRODUCT_TYPE_, PRODUCT_SOLDNUMBER_, PRODUCT_PRICE_, PRODUCT_IMAGE_, PRODUCT_DESCRIPTION_);
+                    Product product = new Product(PRODUCT_ID_, PRODUCT_NAME_, PRODUCT_SPECIES_, PRODUCT_TYPE_, PRODUCT_SOLDNUMBER_, PRODUCT_PRICE_, PRODUCT_IMAGE_, PRODUCT_VIDEO_, PRODUCT_DESCRIPTION_);
 
                     //add user vao array users;
                     courseList.add(product);
@@ -100,9 +103,10 @@ public class ProductDAO {
                     int PRODUCT_PRICE_ = cursor.getInt(cursor.getColumnIndex(PRODUCT_PRICE));
                     int PRODUCT_SOLDNUMBER_ = cursor.getInt(cursor.getColumnIndex(PRODUCT_SOLDNUMBER));
                     String PRODUCT_TYPE_ = cursor.getString(cursor.getColumnIndex(PRODUCT_TYPE));
+                    String PRODUCT_VIDEO_ = cursor.getString(cursor.getColumnIndex(PRODUCT_VIDEO));
                     byte[] PRODUCT_IMAGE_ = cursor.getBlob(cursor.getColumnIndex(PRODUCT_IMAGE));
 
-                    Product product = new Product(PRODUCT_ID_, PRODUCT_NAME_, PRODUCT_SPECIES_, PRODUCT_TYPE_, PRODUCT_SOLDNUMBER_, PRODUCT_PRICE_, PRODUCT_IMAGE_, PRODUCT_DESCRIPTION_);
+                    Product product = new Product(PRODUCT_ID_, PRODUCT_NAME_, PRODUCT_SPECIES_, PRODUCT_TYPE_, PRODUCT_SOLDNUMBER_, PRODUCT_PRICE_, PRODUCT_IMAGE_, PRODUCT_VIDEO_, PRODUCT_DESCRIPTION_);
 
                     //add user vao array users;
                     courseList.add(product);
@@ -133,9 +137,10 @@ public class ProductDAO {
                     int PRODUCT_PRICE_ = cursor.getInt(cursor.getColumnIndex(PRODUCT_PRICE));
                     int PRODUCT_SOLDNUMBER_ = cursor.getInt(cursor.getColumnIndex(PRODUCT_SOLDNUMBER));
                     String PRODUCT_TYPE_ = cursor.getString(cursor.getColumnIndex(PRODUCT_TYPE));
+                    String PRODUCT_VIDEO_ = cursor.getString(cursor.getColumnIndex(PRODUCT_VIDEO));
                     byte[] PRODUCT_IMAGE_ = cursor.getBlob(cursor.getColumnIndex(PRODUCT_IMAGE));
 
-                    Product product = new Product(PRODUCT_ID_, PRODUCT_NAME_, PRODUCT_SPECIES_, PRODUCT_TYPE_, PRODUCT_SOLDNUMBER_, PRODUCT_PRICE_, PRODUCT_IMAGE_, PRODUCT_DESCRIPTION_);
+                    Product product = new Product(PRODUCT_ID_, PRODUCT_NAME_, PRODUCT_SPECIES_, PRODUCT_TYPE_, PRODUCT_SOLDNUMBER_, PRODUCT_PRICE_, PRODUCT_IMAGE_, PRODUCT_VIDEO_, PRODUCT_DESCRIPTION_);
 
                     //add user vao array users;
                     courseList.add(product);

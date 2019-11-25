@@ -1,6 +1,7 @@
 package com.example.mms.activity;
 
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -24,6 +25,8 @@ public class TrailerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_trailer);
 
         vvTrailer = (VideoView) findViewById(R.id.vvTrailer);
+        Intent intent = getIntent();
+
 
         // Tạo bộ điều khiển
         if (mediaController == null) {
@@ -40,7 +43,8 @@ public class TrailerActivity extends AppCompatActivity {
 
         try {
             // ID của file video.
-            int id = this.getRawResIdByName("quyan");
+
+            int id = this.getRawResIdByName(intent.getStringExtra("video"));
             vvTrailer.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + id));
 
         } catch (Exception e) {

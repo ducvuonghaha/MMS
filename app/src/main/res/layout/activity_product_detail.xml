@@ -48,35 +48,16 @@
                     android:textSize="16dp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-                <ImageView
-                    android:id="@+id/imgProductDetail"
-                    android:layout_width="180dp"
-                    android:layout_height="180dp"
-                    android:layout_gravity="left" />
-
-                <Button
-                    android:layout_marginLeft="10dp"
-                    android:layout_gravity="center"
-                    android:id="@+id/btnTrailer"
-                    android:layout_width="100dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/button_red"
-                    android:gravity="center"
-                    android:textColor="#FFF"
-                    android:text="Xem Trailer"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
+            <ImageView
+                android:layout_marginTop="8dp"
+                android:id="@+id/imgProductDetail"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center" />
 
 
             <TextView
+                android:layout_gravity="center"
                 android:id="@+id/tvNameProductDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -86,6 +67,7 @@
                 android:textSize="18dp" />
 
             <LinearLayout
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -111,6 +93,18 @@
 
             </LinearLayout>
 
+            <Button
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:id="@+id/btnTrailer"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:background="@drawable/button_red"
+                android:gravity="center"
+                android:textColor="#FFF"
+                android:text="Xem Trailer"
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -121,6 +115,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:layout_marginTop="5dp"
                 android:justificationMode="inter_word"
                 android:id="@+id/tvDescriptionDetail"
                 android:layout_width="wrap_content"

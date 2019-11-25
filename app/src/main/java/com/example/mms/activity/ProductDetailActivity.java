@@ -41,17 +41,21 @@ public class ProductDetailActivity extends BaseActivity {
         setContentView(R.layout.activity_product_detail);
         initView();
 
+        final Intent intent = getIntent();
+        final String video = intent.getStringExtra("video");
+        tvSPECIES.setText("Phim " + intent.getStringExtra("species"));
+
         btnTrailer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ProductDetailActivity.this, TrailerActivity.class);
+                intent.putExtra("video",video);
                 startActivity(intent);
             }
         });
 
 
-        final Intent intent = getIntent();
-        tvSPECIES.setText("Phim " + intent.getStringExtra("species"));
+
 
         final byte[] image = productDAO.getImageProduct(intent.getStringExtra("id"));
         final String name = intent.getStringExtra("name");
