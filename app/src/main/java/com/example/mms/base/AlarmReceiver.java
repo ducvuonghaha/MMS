@@ -11,7 +11,7 @@ import android.content.Intent;
 import android.os.Build;
 
 import com.example.mms.R;
-import com.example.mms.activity.NotificationActivity;
+import com.example.mms.main_fragment.NotificationActivity;
 
 import static android.app.NotificationManager.IMPORTANCE_DEFAULT;
 

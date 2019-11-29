@@ -10,7 +10,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ShieldsActivity"></activity>
+        <activity android:name=".movieactivity.DocumentMovie"></activity>
+        <activity android:name=".movieactivity.ScienceMovie" />
+        <activity android:name=".movieactivity.ActionMovie" />
+        <activity android:name=".movieactivity.RomanticMovie" />
+        <activity android:name=".movieactivity.ComedyMovie" />
+        <activity android:name=".musicactivity.BoleroMusic" />
+        <activity android:name=".activity.Home2Activity" />
+        <activity android:name=".activity.MusicActivity" />
+        <activity android:name=".activity.MovieActivity" />
+        <activity android:name=".activity.ShieldsActivity" />
         <activity android:name=".activity.QuestionsActivity" />
         <activity android:name=".activity.TrailerActivity" />
         <activity android:name=".activity.SuccessOrdersActivity" />
@@ -39,21 +48,21 @@
         </activity>
         <activity android:name=".activity.MyOrdersActivity" />
         <activity android:name=".activity.MyVoucherActivity" />
-        <activity android:name=".activity.NotificationActivity" />
+        <activity android:name=".main_fragment.NotificationActivity" />
         <activity android:name=".activity.ProductDetailActivity" />
         <activity android:name=".activity.SearchActivity" />
         <activity android:name=".activity.CartActivity" />
         <activity android:name=".activity.SignUpActivity" />
-        <activity android:name=".activity.HomeActivity">
+        <activity android:name=".activity.HomeActivity" />
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.SliderActivity" />
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.SliderActivity" />
-        <activity android:name=".activity.MainActivity" />
     </application>
 
 </manifest>

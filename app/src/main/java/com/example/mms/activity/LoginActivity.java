@@ -44,8 +44,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
         tvForgotPass.setOnClickListener(this);
         btnSignIn.setOnClickListener(this);
         tvDangKy.setOnClickListener(this);
-        edtUsername.setText("123");
-        edtPassword.setText("meovuong201099");
+        edtUsername.setText("meo123");
+        edtPassword.setText("12345678");
     }
 
     @Override

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,11 +22,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mms.R;
 import com.example.mms.activity.CartActivity;
+import com.example.mms.activity.Home2Activity;
+import com.example.mms.activity.MovieActivity;
 import com.example.mms.activity.SearchActivity;
 import com.example.mms.adapter.MMSDealsAdapter;
 import com.example.mms.dao.ProductCartDAO;
 import com.example.mms.dao.ProductDAO;
 import com.example.mms.model.Product;
+import com.example.mms.movieactivity.ActionMovie;
+import com.example.mms.movieactivity.ComedyMovie;
+import com.example.mms.movieactivity.DocumentMovie;
+import com.example.mms.movieactivity.RomanticMovie;
+import com.example.mms.movieactivity.ScienceMovie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +51,21 @@ public class HomeFragment extends Fragment {
     private ProductCartDAO productCartDAO;
     private BroadcastReceiver broadcastReceiver;
     private Button btnSearch;
+    private TextView tvMovieActivity;
+    private TextView tvMusicActivity;
+    private LinearLayout llMovieActivity;
+
+    private LinearLayout llHorrorFilm;
+    private LinearLayout llComedyFilm;
+    private LinearLayout llActionFilm;
+    private LinearLayout llScienceFilm;
+    private LinearLayout llRomanticFilm;
+    private LinearLayout llDocumentFilm;
+
+
+
+
+
 
     @Nullable
     @Override
@@ -61,6 +84,8 @@ public class HomeFragment extends Fragment {
             }
         });
         return view;
+
+
     }
 
 //    public void flipperImages(int image) {
@@ -75,6 +100,72 @@ public class HomeFragment extends Fragment {
 //    }
 
     private void initView(View view) {
+
+
+        llHorrorFilm = (LinearLayout) view.findViewById(R.id.llHorrorFilm);
+        llHorrorFilm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), MovieActivity.class));
+            }
+        });
+
+        llComedyFilm = (LinearLayout) view.findViewById(R.id.llComedyFilm);
+        llComedyFilm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ComedyMovie.class));
+            }
+        });
+
+        llActionFilm = (LinearLayout) view.findViewById(R.id.llActionFilm);
+        llActionFilm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ActionMovie.class));
+            }
+        });
+
+        llScienceFilm = (LinearLayout) view.findViewById(R.id.llScienceFilm);
+        llScienceFilm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ScienceMovie.class));
+            }
+        });
+
+        llRomanticFilm = (LinearLayout) view.findViewById(R.id.llRomanticFilm);
+        llRomanticFilm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), RomanticMovie.class));
+            }
+        });
+
+        llDocumentFilm = (LinearLayout) view.findViewById(R.id.llDocumentFilm);
+        llDocumentFilm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), DocumentMovie.class));
+            }
+        });
+
+        llMovieActivity = (LinearLayout) view.findViewById(R.id.llMovieActivity);
+
+
+        tvMovieActivity = (TextView) view.findViewById(R.id.tvMovieActivity);
+
+
+
+        tvMusicActivity = (TextView) view.findViewById(R.id.tvMusicActivity);
+        tvMusicActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), Home2Activity.class));
+            }
+        });
+
+
         btnSearch = view.findViewById(R.id.btnSearch);
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override

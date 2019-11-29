@@ -60,6 +60,16 @@
     <string name="acti_cart_btnPayment">Thanh toán</string>
     <string name="acti_cart_mesWarning">Vui lòng chọn ít nhất một sản phẩm để thanh toán</string>
 
+    <!--MovieFragment-->
+    <string name="frg_movie_spinner_arrange">Sắp xếp sản phẩm</string>
+    <string name="frg_movie_spinner_lowtohigh">Giá: thấp -> cao</string>
+    <string name="frg_movie_spinner_hightolow">Giá: cao -> thấp</string>
+    <string name="frg_horror_title">Kinh Dị</string>
+    <string name="frg_comedy_title">Hài Hước</string>
+    <string name="frg_action_title">Hành Động</string>
+    <string name="frg_science_title">Khoa Học</string>
+    <string name="frg_romantic_title">Lãng Mạn</string>
+    <string name="frg_document_title">Tài Liệu</string>
 
 </resources>
 

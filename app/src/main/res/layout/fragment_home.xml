@@ -28,7 +28,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
-                    android:background="#7C7D8D">
+                    android:background="#4A4B68">
 
                     <Button
                         android:id="@+id/btnSearch"
@@ -63,12 +63,12 @@
                         android:id="@+id/tvNumberInCart"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
                         android:layout_marginTop="12dp"
                         android:layout_marginRight="26.5dp"
                         android:layout_weight="1"
-                        android:text="1"
+                        android:text="0"
                         android:textColor="@color/colorBackground"
                         android:textStyle="bold" />
                 </RelativeLayout>
@@ -83,15 +83,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp">
 
-                    <TextView
-                        android:textStyle="bold"
-                        android:textSize="22dp"
-                        android:textColor="@color/colortext"
-                        android:gravity="center"
+                    <LinearLayout
+                        android:id="@+id/llMovieActivity"
                         android:layout_weight="1"
-                        android:text="Phim"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvMovieActivity"
+                            android:textStyle="bold"
+                            android:textSize="22dp"
+                            android:textColor="@color/colortext"
+                            android:gravity="center"
+                            android:text="Phim"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
 
                     <TextView
                         android:gravity="center"
@@ -102,6 +110,7 @@
                         android:layout_height="60dp"/>
 
                     <TextView
+                        android:id="@+id/tvMusicActivity"
                         android:textStyle="bold"
                         android:textSize="22dp"
                         android:textColor="@color/colortext"
@@ -158,6 +167,7 @@
                     android:weightSum="10">
 
                     <LinearLayout
+                        android:id="@+id/llHorrorFilm"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3.3"
@@ -180,6 +190,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/llComedyFilm"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3.3"
@@ -202,6 +213,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/llActionFilm"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3.3"
@@ -233,6 +245,7 @@
                     android:weightSum="10">
 
                     <LinearLayout
+                        android:id="@+id/llScienceFilm"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3.3"
@@ -255,6 +268,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/llRomanticFilm"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3.3"
@@ -277,6 +291,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/llDocumentFilm"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3.3"

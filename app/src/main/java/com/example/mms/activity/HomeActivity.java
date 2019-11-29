@@ -25,6 +25,7 @@ import com.example.mms.base.BaseActivity;
 import com.example.mms.dao.MyVoucherDAO;
 import com.example.mms.dao.ProductDAO;
 import com.example.mms.main_fragment.HomeFragment;
+import com.example.mms.main_fragment.NotificationActivity;
 import com.example.mms.main_fragment.ProfileFragment;
 import com.example.mms.model.MyVoucher;
 import com.example.mms.model.Product;
@@ -146,10 +147,11 @@ public class HomeActivity extends BaseActivity {
         productDAO.insertProduct(new Product("ID01", "Quỷ Ấn", "Kinh Dị","Hot",
                 100, 9000000, quyan_f,"quyan","A Bluebird in My Heart dựa trên tiểu thuyết The Dishwasher (Người Rửa Chén) của Dannie M Martin. Phim kể về câu chuyện của cựu tù là Daniel (Roland Moller), người làm công việc rửa chén trong nhà hàng và sống trong một nhà nghỉ cũ cố gắng để có một cuộc sống bình lặng. Tại đây, anh kết bạn với chủ nhà nghỉ là một người mẹ đơn thân Laurence (Veerle Baetens) và cô con gái Clara (Lola La Lann)."));
 
-//        productDAO.insertProduct(new Product("ID02", "Chú Hề Ma Quái 2", "Kinh Dị","Hot",
-//                100, 899000, it_f,"quyan","It Chapter Two (Gã Hề Ma Quái 2) vẫn là câu chuyện về những cô cậu bé của nhóm The Losers Club, lúc này đã trưởng thành và đối mặt với vô số vấn đề trong cuộc sống. Chưa dừng lại ở đó, ám ảnh ma hề Pennywise cứ 27 năm lại xuất hiện một lần tại thị trấn Derry buộc 7 cô cậu bé ngày nào phải tiếp tục cuốn vào cuộc chạm trán tiếp theo giữa hai bên thiện và ác."));
-//        productDAO.insertProduct(new Product("ID03", "Điều Ba Mẹ Không Kể", "Lãng Mạn","Hot",
-//                100, 26900000, dieubamekhongke_f,"quyan","Cho Nam-bong và Lee Mae-ja là cặp vợ chồng già cùng mắc căn bệnh mất trí nhớ. Sau 45 năm chung sống, họ chẳng thể nhớ lần cuối mình từng hạnh phúc là khi nào. Tuy nhiên, khi ký ức dần mất đi, tình yêu và ước mơ từng bị bỏ quên của họ lại dần nhen nhóm lại."));
+        productDAO.insertProduct(new Product("ID02", "Chú Hề Ma Quái 2", "Kinh Dị","Hot",
+                100, 899000, it_f,"it2","It Chapter Two (Gã Hề Ma Quái 2) vẫn là câu chuyện về những cô cậu bé của nhóm The Losers Club, lúc này đã trưởng thành và đối mặt với vô số vấn đề trong cuộc sống. Chưa dừng lại ở đó, ám ảnh ma hề Pennywise cứ 27 năm lại xuất hiện một lần tại thị trấn Derry buộc 7 cô cậu bé ngày nào phải tiếp tục cuốn vào cuộc chạm trán tiếp theo giữa hai bên thiện và ác."));
+
+        productDAO.insertProduct(new Product("ID03", "Điều Ba Mẹ Không Kể", "Lãng Mạn","Hot",
+                100, 26900000, dieubamekhongke_f,"dieubamekhongke","Cho Nam-bong và Lee Mae-ja là cặp vợ chồng già cùng mắc căn bệnh mất trí nhớ. Sau 45 năm chung sống, họ chẳng thể nhớ lần cuối mình từng hạnh phúc là khi nào. Tuy nhiên, khi ký ức dần mất đi, tình yêu và ước mơ từng bị bỏ quên của họ lại dần nhen nhóm lại."));
 
 
 
