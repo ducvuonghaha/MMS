@@ -22,7 +22,7 @@ import com.example.mms.model.Product;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IndieFragment extends Fragment {
+public class EDMFragment extends Fragment {
     private GridLayoutManager gridLayoutManager;
     private ProductDAO productDAO;
     private MMSDealsAdapter mmsDealsAdapter;
@@ -47,11 +47,11 @@ public class IndieFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String ten = spList.get(position);
                 if (ten.equals(getResources().getString(R.string.frg_movie_spinner_arrange))) {
-                    showProduct(productDAO.getAllProductbyType(getResources().getString(R.string.frg_indie_title)));
+                    showProduct(productDAO.getAllProductbyType(getResources().getString(R.string.frg_edm_title)));
                 } else if (ten.equals(getResources().getString(R.string.frg_movie_spinner_lowtohigh))) {
-                    showProduct(productDAO.getAllProductASC(getResources().getString(R.string.frg_indie_title)));
+                    showProduct(productDAO.getAllProductASC(getResources().getString(R.string.frg_edm_title)));
                 } else {
-                    showProduct(productDAO.getAllProductDESC(getResources().getString(R.string.frg_indie_title)));
+                    showProduct(productDAO.getAllProductDESC(getResources().getString(R.string.frg_edm_title)));
                 }
             }
 

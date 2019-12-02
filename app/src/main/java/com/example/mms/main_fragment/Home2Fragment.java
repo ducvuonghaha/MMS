@@ -28,7 +28,12 @@ import com.example.mms.adapter.MMSDealsAdapter;
 import com.example.mms.dao.ProductCartDAO;
 import com.example.mms.dao.ProductDAO;
 import com.example.mms.model.Product;
-import com.example.mms.musicactivity.BoleroMusic;
+import com.example.mms.musicactivity.BoleroActivity;
+import com.example.mms.musicactivity.ChildrenMusicActivity;
+import com.example.mms.musicactivity.EDMActivity;
+import com.example.mms.musicactivity.IndieActivity;
+import com.example.mms.musicactivity.PopActivity;
+import com.example.mms.musicactivity.RockActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +59,8 @@ public class Home2Fragment extends Fragment {
     private LinearLayout llChildren;
     private LinearLayout llEdm;
     private LinearLayout llIndie;
+    private TextView tvTXENNN;
+
 
 
 
@@ -92,11 +99,19 @@ public class Home2Fragment extends Fragment {
 
     private void initView(View view) {
 
+        tvTXENNN = (TextView) view.findViewById(R.id.tvTXENNN);
+        tvTXENNN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), MusicActivity.class));
+            }
+        });
+
         llPop = (LinearLayout) view.findViewById(R.id.llPop);
         llPop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), MusicActivity.class));
+                startActivity(new Intent(getContext(), PopActivity.class));
             }
         });
 
@@ -104,14 +119,41 @@ public class Home2Fragment extends Fragment {
         llBolero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), BoleroMusic.class));
+                startActivity(new Intent(getContext(), BoleroActivity.class));
             }
         });
 
         llRock = (LinearLayout) view.findViewById(R.id.llRock);
+        llRock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), RockActivity.class));
+            }
+        });
+
         llChildren = (LinearLayout) view.findViewById(R.id.llChildren);
+        llChildren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ChildrenMusicActivity.class));
+            }
+        });
+
         llEdm = (LinearLayout) view.findViewById(R.id.llEdm);
+        llEdm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), EDMActivity.class));
+            }
+        });
+
         llIndie = (LinearLayout) view.findViewById(R.id.llIndie);
+        llIndie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), IndieActivity.class));
+            }
+        });
 
 
         tvMovie2Activity = (TextView) view.findViewById(R.id.tvMovie2Activity);

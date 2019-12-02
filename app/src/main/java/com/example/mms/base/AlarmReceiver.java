@@ -30,8 +30,8 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         Notification.Builder builder = new Notification.Builder(context);
 
-        Notification notification = builder.setContentTitle("Khuyến mại bùng nổ dịp 30/4 - 01/05")
-                .setContentText("Giảm giá 50% tất cả các sản phẩm điện thoại Xiaomi")
+        Notification notification = builder.setContentTitle("Khuyến mại bùng nổ dịp noel")
+                .setContentText("Giảm giá 50% tất cả các bộ phim hot")
                 .setTicker("New Message Alert!")
                 .setSmallIcon(R.drawable.cinema)
                 .setContentIntent(pendingIntent).build();

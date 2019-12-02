@@ -36,7 +36,20 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         initView();
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, CATEGORY);
+
+        productDAO = new ProductDAO(this);
+        productList = new ArrayList<>();
+        productList.clear();
+        productList = productDAO.getAllProduct();
+        String namemm[] = new String[productList.size()];
+        for (int i = 0; i < productList.size(); i++) {
+            namemm[i] = productList.get(i).getPRODUCT_NAME();
+        }
+
+//        ArrayAdapter<String> sachAdapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, autoMaps);
+//        autoAddress.setAdapter(sachAdapter);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, namemm);
         actvNameProduct.setAdapter(adapter);
 
 
@@ -53,6 +66,7 @@ public class SearchActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String category = actvNameProduct.getEditableText().toString();
                 getProduct(category);
+
             }
         });
 
@@ -64,7 +78,7 @@ public class SearchActivity extends AppCompatActivity {
         productList.clear();
         gridLayoutManager = new GridLayoutManager(this, 2);
         productDAO = new ProductDAO(this);
-        productList = productDAO.getAllProduct(category);
+        productList = productDAO.getAllProductbyName(category);
         mmsDealsAdapter = new MMSDealsAdapter(this, productList);
         rvSearchProduct.setAdapter(mmsDealsAdapter);
         rvSearchProduct.setLayoutManager(gridLayoutManager);

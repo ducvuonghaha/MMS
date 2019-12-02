@@ -22,4 +22,12 @@ public class Product {
         this.PRODUCT_VIDEO = PRODUCT_VIDEO;
         this.PRODUCT_DESCRIPTION = PRODUCT_DESCRIPTION;
     }
+
+    public String getPRODUCT_NAME() {
+        return PRODUCT_NAME;
+    }
+
+    public void setPRODUCT_NAME(String PRODUCT_NAME) {
+        this.PRODUCT_NAME = PRODUCT_NAME;
+    }
 }

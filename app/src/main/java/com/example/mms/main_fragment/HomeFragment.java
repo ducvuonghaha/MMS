@@ -32,6 +32,7 @@ import com.example.mms.model.Product;
 import com.example.mms.movieactivity.ActionMovie;
 import com.example.mms.movieactivity.ComedyMovie;
 import com.example.mms.movieactivity.DocumentMovie;
+import com.example.mms.movieactivity.HorrorActivity;
 import com.example.mms.movieactivity.RomanticMovie;
 import com.example.mms.movieactivity.ScienceMovie;
 
@@ -61,6 +62,8 @@ public class HomeFragment extends Fragment {
     private LinearLayout llScienceFilm;
     private LinearLayout llRomanticFilm;
     private LinearLayout llDocumentFilm;
+    private TextView tvNEXTT;
+
 
 
 
@@ -101,12 +104,20 @@ public class HomeFragment extends Fragment {
 
     private void initView(View view) {
 
+        tvNEXTT = (TextView) view.findViewById(R.id.tvNEXTT);
+        tvNEXTT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), MovieActivity.class));
+            }
+        });
+
 
         llHorrorFilm = (LinearLayout) view.findViewById(R.id.llHorrorFilm);
         llHorrorFilm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), MovieActivity.class));
+                startActivity(new Intent(getContext(), HorrorActivity.class));
             }
         });
 

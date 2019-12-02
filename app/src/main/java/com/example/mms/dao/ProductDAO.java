@@ -207,4 +207,72 @@ public class ProductDAO {
         return image;
 
     }
+
+    public List<Product> getAllProductbyName(String name) {
+        List<Product> courseList = new ArrayList<>();
+        String sSQL = "SELECT * FROM SanPham WHERE TenSanPham = '" + name + "'";
+        SQLiteDatabase sqLiteDatabase = database.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery(sSQL, null);
+        if (cursor != null) {
+            if (cursor.getCount() > 0) {
+                //di chuyen toi vi tri dau tien cua con tro
+                cursor.moveToFirst();
+                while (!cursor.isAfterLast()) {
+                    String PRODUCT_ID_ = cursor.getString(cursor.getColumnIndex(PRODUCT_ID));
+                    String PRODUCT_NAME_ = cursor.getString(cursor.getColumnIndex(PRODUCT_NAME));
+                    String PRODUCT_SPECIES_ = cursor.getString(cursor.getColumnIndex(PRODUCT_SPECIES));
+                    String PRODUCT_DESCRIPTION_ = cursor.getString(cursor.getColumnIndex(PRODUCT_DESCRIPTION));
+                    int PRODUCT_PRICE_ = cursor.getInt(cursor.getColumnIndex(PRODUCT_PRICE));
+                    int PRODUCT_SOLDNUMBER_ = cursor.getInt(cursor.getColumnIndex(PRODUCT_SOLDNUMBER));
+                    String PRODUCT_TYPE_ = cursor.getString(cursor.getColumnIndex(PRODUCT_TYPE));
+                    String PRODUCT_VIDEO_ = cursor.getString(cursor.getColumnIndex(PRODUCT_VIDEO));
+                    byte[] PRODUCT_IMAGE_ = cursor.getBlob(cursor.getColumnIndex(PRODUCT_IMAGE));
+
+                    Product product = new Product(PRODUCT_ID_, PRODUCT_NAME_, PRODUCT_SPECIES_, PRODUCT_TYPE_, PRODUCT_SOLDNUMBER_, PRODUCT_PRICE_, PRODUCT_IMAGE_, PRODUCT_VIDEO_, PRODUCT_DESCRIPTION_);
+
+                    //add user vao array users;
+                    courseList.add(product);
+                    //di chuyen toi vi tri tiep theo
+                    cursor.moveToNext();
+                }
+                cursor.close();
+                sqLiteDatabase.close();
+            }
+        }
+        return courseList;
+    }
+
+    public List<Product> getAllProduct() {
+        List<Product> courseList = new ArrayList<>();
+        String sSQL = "SELECT * FROM SanPham ";
+        SQLiteDatabase sqLiteDatabase = database.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery(sSQL, null);
+        if (cursor != null) {
+            if (cursor.getCount() > 0) {
+                //di chuyen toi vi tri dau tien cua con tro
+                cursor.moveToFirst();
+                while (!cursor.isAfterLast()) {
+                    String PRODUCT_ID_ = cursor.getString(cursor.getColumnIndex(PRODUCT_ID));
+                    String PRODUCT_NAME_ = cursor.getString(cursor.getColumnIndex(PRODUCT_NAME));
+                    String PRODUCT_SPECIES_ = cursor.getString(cursor.getColumnIndex(PRODUCT_SPECIES));
+                    String PRODUCT_DESCRIPTION_ = cursor.getString(cursor.getColumnIndex(PRODUCT_DESCRIPTION));
+                    int PRODUCT_PRICE_ = cursor.getInt(cursor.getColumnIndex(PRODUCT_PRICE));
+                    int PRODUCT_SOLDNUMBER_ = cursor.getInt(cursor.getColumnIndex(PRODUCT_SOLDNUMBER));
+                    String PRODUCT_TYPE_ = cursor.getString(cursor.getColumnIndex(PRODUCT_TYPE));
+                    String PRODUCT_VIDEO_ = cursor.getString(cursor.getColumnIndex(PRODUCT_VIDEO));
+                    byte[] PRODUCT_IMAGE_ = cursor.getBlob(cursor.getColumnIndex(PRODUCT_IMAGE));
+
+                    Product product = new Product(PRODUCT_ID_, PRODUCT_NAME_, PRODUCT_SPECIES_, PRODUCT_TYPE_, PRODUCT_SOLDNUMBER_, PRODUCT_PRICE_, PRODUCT_IMAGE_, PRODUCT_VIDEO_, PRODUCT_DESCRIPTION_);
+
+                    //add user vao array users;
+                    courseList.add(product);
+                    //di chuyen toi vi tri tiep theo
+                    cursor.moveToNext();
+                }
+                cursor.close();
+                sqLiteDatabase.close();
+            }
+        }
+        return courseList;
+    }
 }

@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.example.mms.musicfragment.BoleroFragment;
 import com.example.mms.musicfragment.ChildrenMusicFragment;
-import com.example.mms.musicfragment.EDMMusic;
+import com.example.mms.musicfragment.EDMFragment;
 import com.example.mms.musicfragment.IndieFragment;
 import com.example.mms.musicfragment.PopFragment;
 import com.example.mms.musicfragment.RockFragment;
@@ -34,7 +34,7 @@ public class PagerMusicAdapter extends FragmentStatePagerAdapter {
                 frag = new ChildrenMusicFragment();
                 break;
             case 4:
-                frag = new EDMMusic();
+                frag = new EDMFragment();
                 break;
             case 5:
                 frag = new IndieFragment();

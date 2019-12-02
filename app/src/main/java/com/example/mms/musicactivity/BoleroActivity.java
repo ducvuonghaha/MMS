@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.mms.R;
 import com.example.mms.musicfragment.BoleroFragment;
 
-public class BoleroMusic extends AppCompatActivity {
+public class BoleroActivity extends AppCompatActivity {
 
     private FrameLayout fragmentBolero;
 

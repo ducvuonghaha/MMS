@@ -71,6 +71,15 @@
     <string name="frg_romantic_title">Lãng Mạn</string>
     <string name="frg_document_title">Tài Liệu</string>
 
+    <!--MovieFragment-->
+    <string name="frg_bolero_title">Trữ Tình</string>
+    <string name="frg_childrenmusic_title">Thiếu Nhi</string>
+    <string name="frg_edm_title">Nhạc EDM</string>
+    <string name="frg_indie_title">Nhạc Indie</string>
+    <string name="frg_pop_title">Nhạc Trẻ</string>
+    <string name="frg_rock_title">Nhạc Rock</string>
+
+
 </resources>
 
 
