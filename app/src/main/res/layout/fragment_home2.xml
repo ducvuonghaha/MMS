@@ -123,6 +123,12 @@
 
             </LinearLayout>
 
+            <ViewFlipper
+                android:layout_margin="8dp"
+                android:id="@+id/vpSlider"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_centerHorizontal="true"></ViewFlipper>
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -11,8 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -41,7 +43,7 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
 
-//    private ViewFlipper viewFlipper;
+    private ViewFlipper viewFlipper;
     private GridLayoutManager gridLayoutManager;
     private ProductDAO productDAO;
     private MMSDealsAdapter mmsDealsAdapter;
@@ -75,10 +77,10 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         initView(view);
-//        int images[] = {R.drawable.banner1, R.drawable.banner3, R.drawable.banner4};
-//        for (int image : images) {
-//            flipperImages(image);
-//        }
+        int images[] = {R.drawable.banner1, R.drawable.banner3, R.drawable.banner4};
+        for (int image : images) {
+            flipperImages(image);
+        }
         btnCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,18 +93,20 @@ public class HomeFragment extends Fragment {
 
     }
 
-//    public void flipperImages(int image) {
-//        ImageView imageView = new ImageView(getContext());
-//        imageView.setBackgroundResource(image);
-//        viewFlipper.addView(imageView);
-//        viewFlipper.setFlipInterval(2500);
-//        viewFlipper.setAutoStart(true);
-//
-//        //
-//        viewFlipper.setInAnimation(getContext(), android.R.anim.fade_in);
-//    }
+    public void flipperImages(int image) {
+        ImageView imageView = new ImageView(getContext());
+        imageView.setBackgroundResource(image);
+        viewFlipper.addView(imageView);
+        viewFlipper.setFlipInterval(2500);
+        viewFlipper.setAutoStart(true);
+
+        //
+        viewFlipper.setInAnimation(getContext(), android.R.anim.fade_in);
+    }
 
     private void initView(View view) {
+
+        viewFlipper = view.findViewById(R.id.vpSlider);
 
         tvNEXTT = (TextView) view.findViewById(R.id.tvNEXTT);
         tvNEXTT.setOnClickListener(new View.OnClickListener() {

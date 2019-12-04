@@ -61,6 +61,7 @@ public class MMSDealsAdapter extends RecyclerView.Adapter<MMSDealsAdapter.Holder
                 intent.putExtra("priceproduct",String.valueOf(p.PRODUCT_PRICE));
                 intent.putExtra("description",p.PRODUCT_DESCRIPTION);
                 context.startActivity(intent);
+
             }
         });
 

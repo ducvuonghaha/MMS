@@ -26,7 +26,7 @@ import com.example.mms.activity.QuestionsActivity;
 import com.example.mms.activity.ShieldsActivity;
 import com.example.mms.dao.UserDAO;
 import com.example.mms.model.User;
-import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareDialog;
 
 import es.dmoral.toasty.Toasty;
@@ -115,11 +115,17 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+//                ProductCartDAO productCartDAO = new ProductCartDAO(getContext());
+//                List<MyOrders> myOrders = new ArrayList<>();
+//                myOrders = productCartDAO.getAllMyOrders(getRootUsername());
+////                Uri product =
+
+
 
                 shareDialog = new ShareDialog(getActivity());
-                if (ShareDialog.canShow(ShareLinkContent.class)) {
-                    ShareLinkContent linkContent = new ShareLinkContent.Builder()
-                            .setContentUrl(Uri.parse("http://zing.vn"))
+                if (ShareDialog.canShow(SharePhotoContent.class)) {
+                    SharePhotoContent linkContent = new SharePhotoContent.Builder()
+                            .setContentUrl(Uri.parse("https://news.zing.vn/"))
                             .build();
                     shareDialog.show(linkContent);
                 }

@@ -16,4 +16,12 @@ public class MyOrders {
         this.MY_ORDER_PRICE = MY_ORDER_PRICE;
         this.MY_ORDER_IMAGE = MY_ORDER_IMAGE;
     }
+
+    public byte[] getMY_ORDER_IMAGE() {
+        return MY_ORDER_IMAGE;
+    }
+
+    public void setMY_ORDER_IMAGE(byte[] MY_ORDER_IMAGE) {
+        this.MY_ORDER_IMAGE = MY_ORDER_IMAGE;
+    }
 }

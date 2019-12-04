@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
@@ -28,6 +29,7 @@ import com.example.mms.main_fragment.Home2Fragment;
 import com.example.mms.main_fragment.HomeFragment;
 import com.example.mms.main_fragment.NotificationActivity;
 import com.example.mms.main_fragment.ProfileFragment;
+import com.example.mms.model.Product;
 import com.facebook.login.LoginManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -128,7 +130,20 @@ public class Home2Activity extends BaseActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout2, new Home2Fragment()).commit();
         productDAO = new ProductDAO(this);
 
+        Bitmap mms = convertDrawabletoBitmap(R.drawable.maimailamotloinoidoi_m);
 
+        byte[] maimailamotloinoidoi_m = setByteArray(mms);
+
+        productDAO.insertProduct(new Product("ID100", "Mãi mãi là một lời nói dối", "Nhạc Trẻ", "HotMusic",
+                100, 150000, maimailamotloinoidoi_m, "maimaimotloinoidoi","Mãi mãi là một lời nói dối\n" +
+                "Chẳng ai cam tâm yêu ai cả đời\n" +
+                "Em từng vì anh mà bỏ lỡ cả tuổi xuân\n" +
+                "Đánh đổi yên bình\n" +
+                "Nhận lấy riêng mình giông bão\n" +
+                "\n" +
+                "Mãi mãi là một lời nói dối\n" +
+                "Gặp anh em cứ ngỡ gặp đúng người\n" +
+                "Nhưng anh cũng giống bao người khác...."));
 
     }
 
