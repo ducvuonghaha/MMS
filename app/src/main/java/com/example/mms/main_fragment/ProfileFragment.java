@@ -3,6 +3,8 @@ package com.example.mms.main_fragment;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,7 +28,7 @@ import com.example.mms.activity.QuestionsActivity;
 import com.example.mms.activity.ShieldsActivity;
 import com.example.mms.dao.UserDAO;
 import com.example.mms.model.User;
-import com.facebook.share.model.SharePhotoContent;
+import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
 
 import es.dmoral.toasty.Toasty;
@@ -37,7 +39,7 @@ public class ProfileFragment extends Fragment {
     private LinearLayout llQuestions;
     private LinearLayout llShields;
 
-
+    private Bitmap bitmap ;
     private LinearLayout llMyOrders;
     private TextView tvFullName;
     private ShareDialog shareDialog;
@@ -48,11 +50,14 @@ public class ProfileFragment extends Fragment {
     private LinearLayout llMyVoucher;
     private LinearLayout llSignOut;
     private LinearLayout llShareFacebook;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         initView(view);
+
         return view;
 
     }
@@ -115,20 +120,16 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-//                ProductCartDAO productCartDAO = new ProductCartDAO(getContext());
-//                List<MyOrders> myOrders = new ArrayList<>();
-//                myOrders = productCartDAO.getAllMyOrders(getRootUsername());
-////                Uri product =
-
-
 
                 shareDialog = new ShareDialog(getActivity());
-                if (ShareDialog.canShow(SharePhotoContent.class)) {
-                    SharePhotoContent linkContent = new SharePhotoContent.Builder()
-                            .setContentUrl(Uri.parse("https://news.zing.vn/"))
+                if (ShareDialog.canShow(ShareLinkContent.class)) {
+                    ShareLinkContent linkContent = new ShareLinkContent.Builder()
+                            .setContentUrl(Uri.parse("https://www.facebook.com/vuongmeo99"))
                             .build();
-                    shareDialog.show(linkContent);
+                    ShareDialog.show(getActivity(),linkContent);
                 }
+
+
             }
         });
 
@@ -295,4 +296,9 @@ public class ProfileFragment extends Fragment {
         name = getContext().getSharedPreferences("USER", MODE_PRIVATE).getString("NAME", null);
         return name;
     }
+
+    public Bitmap convertDrawabletoBitmap(int drawable) {
+        Bitmap icon = BitmapFactory.decodeResource(getResources(), drawable);
+        return icon;
     }
+}

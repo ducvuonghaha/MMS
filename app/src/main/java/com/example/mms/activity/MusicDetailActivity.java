@@ -3,7 +3,6 @@ package com.example.mms.activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,16 +14,18 @@ import com.example.mms.R;
 import com.example.mms.base.BaseActivity;
 import com.example.mms.dao.ProductCartDAO;
 import com.example.mms.dao.ProductDAO;
+import com.example.mms.interfaces.OrdersView;
 import com.example.mms.model.ProductCart;
+import com.example.mms.presenter.OrdersPresenter;
 
 import java.io.ByteArrayInputStream;
 
-public class MusicDetailActivity extends BaseActivity {
+public class MusicDetailActivity extends BaseActivity implements OrdersView {
 
     private TextView tvSPECIES2;
 
 
-
+    private OrdersPresenter ordersPresenter ;
     private ImageView imgProductDetail;
     private TextView tvNameProductDetail;
     private TextView tvPriceProductDetail;
@@ -42,7 +43,10 @@ public class MusicDetailActivity extends BaseActivity {
         setContentView(R.layout.activity_music_detail);
         initView();
 
+        ordersPresenter = new OrdersPresenter(this);
+
         final Intent intent = getIntent();
+        final String id = intent.getStringExtra("id");
         final String song = intent.getStringExtra("video");
         tvSPECIES2.setText(intent.getStringExtra("species"));
 
@@ -52,8 +56,10 @@ public class MusicDetailActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-                MediaPlayer ring= MediaPlayer.create(MusicDetailActivity.this,R.raw.maimaimotloinoidoi);
-                ring.start();
+                Intent intent = new Intent(MusicDetailActivity.this, ListenActivity.class);
+                intent.putExtra("id", id);
+                intent.putExtra("video",song);
+                startActivity(intent);
             }
         });
 
@@ -67,7 +73,7 @@ public class MusicDetailActivity extends BaseActivity {
         btnAddProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validate();
+                ordersPresenter.validate();
             }
         });
         imgProductDetail.setImageBitmap(ByteArrayToBitmap(image));
@@ -86,7 +92,13 @@ public class MusicDetailActivity extends BaseActivity {
         return bitmap;
     }
 
-    private void validate() {
+    @Override
+    public void navigateMyOrders() {
+
+    }
+
+    @Override
+    public void validate() {
         try {
             Intent intent = getIntent();
             byte[] image = productDAO.getImageProduct(intent.getStringExtra("id"));

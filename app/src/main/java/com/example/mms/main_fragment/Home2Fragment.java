@@ -26,7 +26,7 @@ import com.example.mms.activity.CartActivity;
 import com.example.mms.activity.HomeActivity;
 import com.example.mms.activity.MusicActivity;
 import com.example.mms.activity.SearchActivity;
-import com.example.mms.adapter.MMSDealsAdapter;
+import com.example.mms.adapter.MusicDealAdapter;
 import com.example.mms.dao.ProductCartDAO;
 import com.example.mms.dao.ProductDAO;
 import com.example.mms.model.Product;
@@ -43,7 +43,7 @@ import java.util.List;
 public class Home2Fragment extends Fragment {
     private GridLayoutManager gridLayoutManager;
     private ProductDAO productDAO;
-    private MMSDealsAdapter mmsDealsAdapter;
+    private MusicDealAdapter musicDealAdapter;
     private List<Product> productList;
     private RecyclerView rvMusic2;
     private ImageButton btnCart;
@@ -209,12 +209,12 @@ public class Home2Fragment extends Fragment {
         gridLayoutManager = new GridLayoutManager(getContext(), 2);
         productDAO = new ProductDAO(getContext());
         productList = productDAO.getAllProduct("HotMusic");
-        mmsDealsAdapter = new MMSDealsAdapter(getContext(), productList);
-        rvMusic2.setAdapter(mmsDealsAdapter);
+        musicDealAdapter = new MusicDealAdapter(getContext(), productList);
+        rvMusic2.setAdapter(musicDealAdapter);
         rvMusic2.setLayoutManager(gridLayoutManager);
         rvMusic2.setHasFixedSize(true);
         rvMusic2.setNestedScrollingEnabled(false);
-        mmsDealsAdapter.notifyDataSetChanged();
+        musicDealAdapter.notifyDataSetChanged();
     }
 
     private String getRootUsername() {

@@ -21,6 +21,9 @@ import static com.example.mms.database.Constant.USER_TABLE;
 public class UserDAO {
     private Database database;
 
+    public UserDAO() {
+    }
+
     public UserDAO(Context context) {
         this.database = new Database(context);
     }

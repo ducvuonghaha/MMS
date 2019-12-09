@@ -14,16 +14,18 @@ import com.example.mms.R;
 import com.example.mms.base.BaseActivity;
 import com.example.mms.dao.ProductCartDAO;
 import com.example.mms.dao.ProductDAO;
+import com.example.mms.interfaces.OrdersView;
 import com.example.mms.model.ProductCart;
+import com.example.mms.presenter.OrdersPresenter;
 
 import java.io.ByteArrayInputStream;
 
-public class ProductDetailActivity extends BaseActivity {
+public class ProductDetailActivity extends BaseActivity implements OrdersView {
 
     private TextView tvSPECIES;
 
 
-
+    private OrdersPresenter ordersPresenter;
     private ImageView imgProductDetail;
     private TextView tvNameProductDetail;
     private TextView tvPriceProductDetail;
@@ -40,6 +42,8 @@ public class ProductDetailActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
         initView();
+
+        ordersPresenter = new OrdersPresenter(this);
 
         final Intent intent = getIntent();
         final String video = intent.getStringExtra("video");
@@ -64,7 +68,7 @@ public class ProductDetailActivity extends BaseActivity {
         btnAddProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validate();
+                ordersPresenter.validate();
             }
         });
         imgProductDetail.setImageBitmap(ByteArrayToBitmap(image));
@@ -83,7 +87,13 @@ public class ProductDetailActivity extends BaseActivity {
         return bitmap;
     }
 
-    private void validate() {
+    @Override
+    public void navigateMyOrders() {
+
+    }
+
+    @Override
+    public void validate() {
         try {
             Intent intent = getIntent();
             byte[] image = productDAO.getImageProduct(intent.getStringExtra("id"));

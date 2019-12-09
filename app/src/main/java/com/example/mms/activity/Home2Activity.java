@@ -156,7 +156,7 @@ public class Home2Activity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unbindDrawables(findViewById(R.id.container));
+        unbindDrawables(findViewById(R.id.container2));
         System.gc();
     }
 

@@ -16,14 +16,16 @@ import com.example.mms.base.BaseActivity;
 import com.example.mms.dao.MyVoucherDAO;
 import com.example.mms.dao.ProductCartDAO;
 import com.example.mms.dao.UserDAO;
+import com.example.mms.interfaces.PaymentsView;
 import com.example.mms.model.ProductCart;
+import com.example.mms.presenter.PaymentPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.mms.database.Constant.decimalFormat;
 
-public class PaymentActivity extends BaseActivity {
+public class PaymentActivity extends BaseActivity implements PaymentsView {
     private TextView tvFullNamePayment;
     private TextView tvAddressPayment;
     private EditText edtVoucherCode;
@@ -38,12 +40,14 @@ public class PaymentActivity extends BaseActivity {
     private LinearLayoutManager linearLayoutManager;
     private ProductCartDAO productCartDAO;
     private UserDAO userDAO;
+    private PaymentPresenter paymentPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
         initView();
+        paymentPresenter = new PaymentPresenter(this);
     }
 
     private void initView() {
@@ -63,18 +67,8 @@ public class PaymentActivity extends BaseActivity {
         btnCheckVoucher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String voucherCode = edtVoucherCode.getText().toString();
-                boolean check = myVoucherDAO.checkVoucher(voucherCode);
-                if (check == true) {
-                    showMessegeSuccess(getResources().getString(R.string.acti_payment_successVoucher));
-                    double tongtienn = productCartDAO.getTongTien(getRootUsername());
-                    double discout = myVoucherDAO.getPercentDiscount(voucherCode);
-                    double priceAfterDiscount = tongtienn * discout;
-                    if (tvSumPricePayment != null)
-                        tvSumPricePayment.setText(decimalFormat.format(priceAfterDiscount));
-                } else {
-                    showMessegeWarning(getResources().getString(R.string.acti_payment_warningVoucher));
-                }
+
+                paymentPresenter.checkVoucher();
             }
         });
 
@@ -100,11 +94,8 @@ public class PaymentActivity extends BaseActivity {
         btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                productCartDAO.insertMyOrders(getRootUsername());
-                productCartDAO.deleteCart(getRootUsername());
-                sendBroadcast(new Intent("update"));
-                startNewActivity(SuccessOrdersActivity.class);
 
+                paymentPresenter.orders();
             }
         });
     }
@@ -113,5 +104,29 @@ public class PaymentActivity extends BaseActivity {
         String name;
         name = getSharedPreferences("USER", MODE_PRIVATE).getString("NAME", null);
         return name;
+    }
+
+    @Override
+    public void orders() {
+        productCartDAO.insertMyOrders(getRootUsername());
+        productCartDAO.deleteCart(getRootUsername());
+        sendBroadcast(new Intent("update"));
+        startNewActivity(SuccessOrdersActivity.class);
+    }
+
+    @Override
+    public void checkVoucher() {
+        String voucherCode = edtVoucherCode.getText().toString();
+        boolean check = myVoucherDAO.checkVoucher(voucherCode);
+        if (check == true) {
+            showMessegeSuccess(getResources().getString(R.string.acti_payment_successVoucher));
+            double tongtienn = productCartDAO.getTongTien(getRootUsername());
+            double discout = myVoucherDAO.getPercentDiscount(voucherCode);
+            double priceAfterDiscount = tongtienn * discout;
+            if (tvSumPricePayment != null)
+                tvSumPricePayment.setText(decimalFormat.format(priceAfterDiscount));
+        } else {
+            showMessegeWarning(getResources().getString(R.string.acti_payment_warningVoucher));
+        }
     }
 }

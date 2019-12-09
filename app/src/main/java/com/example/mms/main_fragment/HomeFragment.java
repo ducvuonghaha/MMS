@@ -41,7 +41,7 @@ import com.example.mms.movieactivity.ScienceMovie;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment  {
 
     private ViewFlipper viewFlipper;
     private GridLayoutManager gridLayoutManager;

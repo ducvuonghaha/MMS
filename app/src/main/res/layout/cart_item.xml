@@ -32,8 +32,7 @@
                 android:id="@+id/tvNameCartProduct"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="iPad WiFi 128GB New 2018
-Pink"
+                android:text="Quy An"
                 android:textColor="@color/colorBlack" />
 
             <LinearLayout
