@@ -9,9 +9,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.databinding.DataBindingUtil;
+
 import com.example.mms.R;
 import com.example.mms.base.BaseActivity;
 import com.example.mms.dao.UserDAO;
+import com.example.mms.databinding.ActivityLoginBinding;
 import com.example.mms.interfaces.LoginView;
 import com.example.mms.model.User;
 import com.example.mms.presenter.LoginPresenter;
@@ -32,9 +35,11 @@ public class LoginActivity extends BaseActivity implements LoginView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        ActivityLoginBinding activityLoginBinding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+//        setContentView(R.layout.activity_login);
         initView();
         loginPresenter = new LoginPresenter(LoginActivity.this);
+        activityLoginBinding.setSignUp(loginPresenter);
     }
 
     public void initView() {
@@ -126,12 +131,12 @@ public class LoginActivity extends BaseActivity implements LoginView {
         });
 
 
-        tvDangKy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startNewActivity(SignUpActivity.class);
-            }
-        });
+//        tvDangKy.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                loginPresenter.SignUp();
+//            }
+//        });
 
 
 //        edtUsername.setText("meo123");
@@ -168,5 +173,10 @@ public class LoginActivity extends BaseActivity implements LoginView {
     @Override
     public void LoginFail() {
 
+    }
+
+    @Override
+    public void SignUp() {
+        startNewActivity(SignUpActivity.class);
     }
 }

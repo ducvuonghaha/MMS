@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="CheckVoucher"
+            type="com.example.mms.presenter.PaymentPresenter" />
+
+        <variable
+            name="Order"
+            type="com.example.mms.presenter.PaymentPresenter" />
+    </data>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -250,6 +262,7 @@
                                 android:textSize="15dp" />
 
                             <Button
+                                android:onClick="@{() -> CheckVoucher.checkVoucher()}"
                                 android:layout_width="0dp"
                                 android:layout_marginTop="8dp"
                                 android:layout_marginLeft="10dp"
@@ -322,6 +335,7 @@
         </LinearLayout>
 
         <Button
+            android:onClick="@{() -> Order.orders()}"
             android:id="@+id/btnOrder"
             android:layout_width="0dp"
             android:layout_height="50dp"
@@ -339,3 +353,4 @@
     </LinearLayout>
 
 </RelativeLayout>
+</layout>

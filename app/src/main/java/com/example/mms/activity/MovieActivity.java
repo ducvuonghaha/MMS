@@ -5,21 +5,24 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.mms.R;
 import com.example.mms.dao.ProductCartDAO;
+import com.example.mms.databinding.ActivityMovieBinding;
+import com.example.mms.interfaces.MallCartView;
+import com.example.mms.presenter.MallCartPresenter;
 import com.google.android.material.tabs.TabLayout;
 
-public class MovieActivity extends AppCompatActivity {
+public class MovieActivity extends AppCompatActivity implements MallCartView {
 
     private Button btnMallSearch;
     private ImageButton btnMallCart;
@@ -28,14 +31,18 @@ public class MovieActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private ProductCartDAO productCartDAO;
     private BroadcastReceiver broadcastReceiver;
-
+    private MallCartPresenter mallCartPresenter ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie);
+        ActivityMovieBinding activityMovieBinding = DataBindingUtil.setContentView(this, R.layout.activity_movie);
+//        setContentView(R.layout.activity_movie);
         init();
 
+        mallCartPresenter = new MallCartPresenter(this);
+        activityMovieBinding.setMallSearch(mallCartPresenter);
+        activityMovieBinding.setCart(mallCartPresenter);
 //        tvNumberMallInCart.setText(String.valueOf(productCartDAO.getNumberInCart(getRootUsername())));
         broadcastReceiver = new BroadcastReceiver() {
             @Override
@@ -45,21 +52,22 @@ public class MovieActivity extends AppCompatActivity {
             }
         };
 
-        btnMallSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MovieActivity.this, SearchActivity.class));
-            }
-        });
+//        btnMallSearch.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+
         IntentFilter intentFilter = new IntentFilter("update");
         registerReceiver(broadcastReceiver, intentFilter);
-        btnMallCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MovieActivity.this, CartActivity.class);
-                startActivity(intent);
-            }
-        });
+
+//        btnMallCart.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
 
 
         FragmentManager manager = getSupportFragmentManager();
@@ -94,5 +102,17 @@ public class MovieActivity extends AppCompatActivity {
         } catch (Exception e) {
         }
         super.onDestroy();
+    }
+
+
+    @Override
+    public void MovetoMallSearch() {
+        startActivity(new Intent(MovieActivity.this, SearchActivity.class));
+    }
+
+    @Override
+    public void MovetoCart() {
+        Intent intent = new Intent(MovieActivity.this, CartActivity.class);
+        startActivity(intent);
     }
 }

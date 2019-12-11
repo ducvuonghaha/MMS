@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="Validate"
+            type="com.example.mms.presenter.OrdersPresenter" />
+    </data>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -125,6 +131,7 @@
                 android:textSize="15dp" />
 
             <Button
+                android:onClick="@{() -> Validate.validate()}"
                 android:id="@+id/btnAddProduct"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
@@ -141,3 +148,4 @@
         </LinearLayout>
     </TableLayout>
 </androidx.core.widget.NestedScrollView>
+</layout>

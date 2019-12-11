@@ -1,4 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="MyOrders"
+            type="com.example.mms.presenter.ProfilePresenter" />
+
+        <variable
+            name="ChangePassword"
+            type="com.example.mms.presenter.ProfilePresenter" />
+
+        <variable
+            name="ShareFacebook"
+            type="com.example.mms.presenter.ProfilePresenter" />
+
+        <variable
+            name="Voucher"
+            type="com.example.mms.presenter.ProfilePresenter" />
+
+        <variable
+            name="Question"
+            type="com.example.mms.presenter.ProfilePresenter" />
+
+        <variable
+            name="Shields"
+            type="com.example.mms.presenter.ProfilePresenter" />
+
+        <variable
+            name="SignOut"
+            type="com.example.mms.presenter.ProfilePresenter" />
+    </data>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -91,6 +122,7 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:onClick="@{() -> MyOrders.MyOrders()}"
             android:id="@+id/llMyOrders"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -116,6 +148,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:onClick="@{() -> ChangePassword.ChangePassword()}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/llChangePass"
@@ -142,6 +175,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:onClick="@{() -> ShareFacebook.ShareFacebook()}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/llShareFacebook"
@@ -168,6 +202,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:onClick="@{() -> Voucher.Voucher()}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorBackground"
@@ -202,6 +237,7 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:onClick="@{() -> Question.Question()}"
             android:id="@+id/llQuestions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -227,6 +263,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:onClick="@{() -> Shields.Shield()}"
             android:id="@+id/llShields"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -253,6 +290,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:onClick="@{() -> SignOut.SignOut()}"
             android:id="@+id/llSignOut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -279,3 +317,4 @@
     </LinearLayout>
     </LinearLayout>
 </ScrollView>
+</layout>

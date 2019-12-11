@@ -1,7 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="Next"
+            type="com.example.mms.presenter.HomePresenter" />
+
+        <variable
+            name="Search"
+            type="com.example.mms.presenter.HomePresenter" />
+
+        <variable
+            name="Music_Movie"
+            type="com.example.mms.presenter.HomePresenter" />
+
+        <variable
+            name="Horror_Pop"
+            type="com.example.mms.presenter.HomePresenter" />
+
+        <variable
+            name="Comedy_Bolero"
+            type="com.example.mms.presenter.HomePresenter" />
+
+        <variable
+            name="Action_Rock"
+            type="com.example.mms.presenter.HomePresenter" />
+
+        <variable
+            name="Science_Children"
+            type="com.example.mms.presenter.HomePresenter" />
+
+        <variable
+            name="Romantic_EDM"
+            type="com.example.mms.presenter.HomePresenter" />
+
+        <variable
+            name="Document_Indie"
+            type="com.example.mms.presenter.HomePresenter" />
+
+        <variable
+            name="Cart"
+            type="com.example.mms.presenter.HomePresenter" />
+
+    </data>
+
+    <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_alignParentStart="true"
     android:layout_alignParentTop="true"
     android:layout_marginStart="0dp"
@@ -31,6 +76,7 @@
                     android:background="#4A4B68">
 
                     <Button
+                        android:onClick="@{() -> Search.Search()}"
                         android:id="@+id/btnSearch"
                         android:layout_width="260dp"
                         android:layout_height="35dp"
@@ -47,6 +93,7 @@
                         android:textStyle="normal" />
 
                     <ImageButton
+                        android:onClick="@{() -> Cart.Cart()}"
                         android:id="@+id/btnCart"
                         android:layout_width="40dp"
                         android:layout_height="38dp"
@@ -110,6 +157,7 @@
                         android:layout_height="60dp"/>
 
                     <TextView
+                        android:onClick="@{() -> Music_Movie.Music_Movie()}"
                         android:id="@+id/tvMusicActivity"
                         android:textStyle="bold"
                         android:textSize="22dp"
@@ -157,6 +205,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:onClick="@{() -> Next.Next()}"
                         android:id="@+id/tvNEXTT"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -180,6 +229,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="3.3"
                         android:gravity="center"
+                        android:onClick="@{() -> Horror_Pop.Horror_Pop()}"
                         android:orientation="vertical">
 
                         <ImageView
@@ -188,16 +238,17 @@
                             android:background="@drawable/horror" />
 
                         <TextView
-                            android:textSize="15dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/colortext"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Kinh Dị" />
+                            android:text="Kinh Dị"
+                            android:textColor="@color/colortext"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <LinearLayout
+                        android:onClick="@{() -> Comedy_Bolero.Comedy_Bolero()}"
                         android:id="@+id/llComedyFilm"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -221,6 +272,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:onClick="@{() -> Action_Rock.Action_Rock()}"
                         android:id="@+id/llActionFilm"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -253,6 +305,7 @@
                     android:weightSum="10">
 
                     <LinearLayout
+                        android:onClick="@{() -> Science_Children.Science_Children()}"
                         android:id="@+id/llScienceFilm"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -276,6 +329,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:onClick="@{() -> Romantic_EDM.Romantic_EDM()}"
                         android:id="@+id/llRomanticFilm"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -299,6 +353,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:onClick="@{() -> Document_Indie.Document_Indie()}"
                         android:id="@+id/llDocumentFilm"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -362,10 +417,11 @@
             android:id="@+id/rvWakaDeal"
             android:layout_width="match_parent"
             android:background="#2C5364"
-            android:layout_height="800dp"
+            android:layout_height="1800dp"
             android:layout_below="@id/liner">
 
         </androidx.recyclerview.widget.RecyclerView>
 
     </TableLayout>
 </ScrollView>
+</layout>

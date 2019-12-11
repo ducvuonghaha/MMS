@@ -30,6 +30,7 @@ import com.example.mms.activity.SearchActivity;
 import com.example.mms.adapter.MMSDealsAdapter;
 import com.example.mms.dao.ProductCartDAO;
 import com.example.mms.dao.ProductDAO;
+import com.example.mms.interfaces.HomeView;
 import com.example.mms.model.Product;
 import com.example.mms.movieactivity.ActionMovie;
 import com.example.mms.movieactivity.ComedyMovie;
@@ -37,11 +38,12 @@ import com.example.mms.movieactivity.DocumentMovie;
 import com.example.mms.movieactivity.HorrorActivity;
 import com.example.mms.movieactivity.RomanticMovie;
 import com.example.mms.movieactivity.ScienceMovie;
+import com.example.mms.presenter.HomePresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends Fragment  {
+public class HomeFragment extends Fragment implements HomeView {
 
     private ViewFlipper viewFlipper;
     private GridLayoutManager gridLayoutManager;
@@ -66,7 +68,7 @@ public class HomeFragment extends Fragment  {
     private LinearLayout llDocumentFilm;
     private TextView tvNEXTT;
 
-
+    private HomePresenter homePresenter ;
 
 
 
@@ -75,19 +77,30 @@ public class HomeFragment extends Fragment  {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+//        FragmentHomeBinding fragmentHomeBinding = DataBindingUtil.setContentView(getActivity(), R.layout.fragment_home);
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         initView(view);
+        homePresenter = new HomePresenter(this);
         int images[] = {R.drawable.banner1, R.drawable.banner3, R.drawable.banner4};
         for (int image : images) {
             flipperImages(image);
         }
-        btnCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), CartActivity.class);
-                startActivity(intent);
-            }
-        });
+
+
+
+//
+//        fragmentHomeBinding.setNext(homePresenter);
+//        fragmentHomeBinding.setCart(homePresenter);
+//        fragmentHomeBinding.setSearch(homePresenter);
+//        fragmentHomeBinding.setHorrorPop(homePresenter);
+//        fragmentHomeBinding.setComedyBolero(homePresenter);
+//        fragmentHomeBinding.setActionRock(homePresenter);
+//        fragmentHomeBinding.setScienceChildren(homePresenter);
+//        fragmentHomeBinding.setRomanticEDM(homePresenter);
+//        fragmentHomeBinding.setDocumentIndie(homePresenter);
+//        fragmentHomeBinding.setMusicMovie(homePresenter);
+
+
         return view;
 
 
@@ -112,16 +125,17 @@ public class HomeFragment extends Fragment  {
         tvNEXTT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), MovieActivity.class));
+                homePresenter.Next();
             }
         });
+
 
 
         llHorrorFilm = (LinearLayout) view.findViewById(R.id.llHorrorFilm);
         llHorrorFilm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), HorrorActivity.class));
+                homePresenter.Horror_Pop();
             }
         });
 
@@ -129,41 +143,49 @@ public class HomeFragment extends Fragment  {
         llComedyFilm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), ComedyMovie.class));
+                homePresenter.Comedy_Bolero();
             }
         });
+
 
         llActionFilm = (LinearLayout) view.findViewById(R.id.llActionFilm);
         llActionFilm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), ActionMovie.class));
+                homePresenter.Action_Rock();
             }
         });
+
+
 
         llScienceFilm = (LinearLayout) view.findViewById(R.id.llScienceFilm);
         llScienceFilm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), ScienceMovie.class));
+                homePresenter.Science_Children();
             }
         });
+
 
         llRomanticFilm = (LinearLayout) view.findViewById(R.id.llRomanticFilm);
         llRomanticFilm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), RomanticMovie.class));
+                homePresenter.Romantic_EDM();
             }
         });
+
+
 
         llDocumentFilm = (LinearLayout) view.findViewById(R.id.llDocumentFilm);
         llDocumentFilm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), DocumentMovie.class));
+                homePresenter.Document_Indie();
             }
         });
+
+
 
         llMovieActivity = (LinearLayout) view.findViewById(R.id.llMovieActivity);
 
@@ -176,18 +198,20 @@ public class HomeFragment extends Fragment  {
         tvMusicActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), Home2Activity.class));
+                homePresenter.Music_Movie();
             }
         });
+
 
 
         btnSearch = view.findViewById(R.id.btnSearch);
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), SearchActivity.class));
+                homePresenter.Search();
             }
         });
+
         tvNumberInCart = view.findViewById(R.id.tvNumberInCart);
         productCartDAO = new ProductCartDAO(getContext());
         tvNumberInCart.setText(String.valueOf(productCartDAO.getNumberInCart(getRootUsername())));
@@ -205,6 +229,12 @@ public class HomeFragment extends Fragment  {
 
 
         btnCart = view.findViewById(R.id.btnCart);
+        btnCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                homePresenter.Cart();
+            }
+        });
 
         recyclerView = view.findViewById(R.id.rvWakaDeal);
         productList = new ArrayList<>();
@@ -218,6 +248,7 @@ public class HomeFragment extends Fragment  {
         recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
         mmsDealsAdapter.notifyDataSetChanged();
+
     }
 
     private String getRootUsername() {
@@ -234,6 +265,58 @@ public class HomeFragment extends Fragment  {
         } catch (Exception e) {
         }
         super.onDestroy();
+    }
+
+
+    @Override
+    public void Next() {
+        startActivity(new Intent(getContext(), MovieActivity.class));
+    }
+
+    @Override
+    public void Horror_Pop() {
+        startActivity(new Intent(getContext(), HorrorActivity.class));
+    }
+
+    @Override
+    public void Comedy_Bolero() {
+        startActivity(new Intent(getContext(), ComedyMovie.class));
+    }
+
+    @Override
+    public void Action_Rock() {
+        startActivity(new Intent(getContext(), ActionMovie.class));
+    }
+
+    @Override
+    public void Science_Children() {
+        startActivity(new Intent(getContext(), ScienceMovie.class));
+    }
+
+    @Override
+    public void Romantic_EDM() {
+        startActivity(new Intent(getContext(), RomanticMovie.class));
+    }
+
+    @Override
+    public void Document_Indie() {
+        startActivity(new Intent(getContext(), DocumentMovie.class));
+    }
+
+    @Override
+    public void Search() {
+        startActivity(new Intent(getContext(), SearchActivity.class));
+    }
+
+    @Override
+    public void Music_Movie() {
+        startActivity(new Intent(getContext(), Home2Activity.class));
+    }
+
+    @Override
+    public void Cart() {
+        Intent intent = new Intent(getContext(), CartActivity.class);
+        startActivity(intent);
     }
 
 

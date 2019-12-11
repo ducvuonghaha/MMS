@@ -27,7 +27,9 @@ import com.example.mms.activity.MyVoucherActivity;
 import com.example.mms.activity.QuestionsActivity;
 import com.example.mms.activity.ShieldsActivity;
 import com.example.mms.dao.UserDAO;
+import com.example.mms.interfaces.ProfileView;
 import com.example.mms.model.User;
+import com.example.mms.presenter.ProfilePresenter;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
 
@@ -35,7 +37,7 @@ import es.dmoral.toasty.Toasty;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements ProfileView {
     private LinearLayout llQuestions;
     private LinearLayout llShields;
 
@@ -50,14 +52,23 @@ public class ProfileFragment extends Fragment {
     private LinearLayout llMyVoucher;
     private LinearLayout llSignOut;
     private LinearLayout llShareFacebook;
-
+    private ProfilePresenter profilePresenter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+//        FragmentProfileBinding fragmentProfileBinding = DataBindingUtil.setContentView(getActivity(), R.layout.fragment_profile);
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         initView(view);
+        profilePresenter = new ProfilePresenter(this);
 
+//        fragmentProfileBinding.setChangePassword(profilePresenter);
+//        fragmentProfileBinding.setMyOrders(profilePresenter);
+//        fragmentProfileBinding.setQuestion(profilePresenter);
+//        fragmentProfileBinding.setShareFacebook(profilePresenter);
+//        fragmentProfileBinding.setShields(profilePresenter);
+//        fragmentProfileBinding.setSignOut(profilePresenter);
+//        fragmentProfileBinding.setVoucher(profilePresenter);
         return view;
 
     }
@@ -79,55 +90,28 @@ public class ProfileFragment extends Fragment {
         llQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), QuestionsActivity.class);
-                startActivity(intent);
+                profilePresenter.Question();
             }
         });
 
         llShields.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), ShieldsActivity.class);
-                startActivity(intent);
+                profilePresenter.Shield();
             }
         });
 
         llSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
-                mBuilder.setMessage("Bạn có muốn đăng xuất không?");
-                mBuilder.setCancelable(true);
-                mBuilder.setPositiveButton("Hủy", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                mBuilder.setNegativeButton("Đăng xuất", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        startActivity(new Intent(getContext(), LoginActivity.class));
-                        getActivity().finish();
-                    }
-                });
-                AlertDialog dialog = mBuilder.create();
-                dialog.show();
+                profilePresenter.SignOut();
             }
         });
 
         llShareFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-                shareDialog = new ShareDialog(getActivity());
-                if (ShareDialog.canShow(ShareLinkContent.class)) {
-                    ShareLinkContent linkContent = new ShareLinkContent.Builder()
-                            .setContentUrl(Uri.parse("https://www.facebook.com/vuongmeo99"))
-                            .build();
-                    ShareDialog.show(getActivity(),linkContent);
-                }
+                profilePresenter.ShareFacebook();
 
 
             }
@@ -136,13 +120,13 @@ public class ProfileFragment extends Fragment {
         llMyVoucher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), MyVoucherActivity.class));
+                profilePresenter.Voucher();
             }
         });
         llMyOrders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), MyOrdersActivity.class));
+                profilePresenter.MyOrders();
             }
         });
 
@@ -231,62 +215,7 @@ public class ProfileFragment extends Fragment {
         llChangePasss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder mBuilder1 = new AlertDialog.Builder(getContext());
-                View mView1 = View.inflate(getContext(), R.layout.dialog_change_password, null);
-                mBuilder1.setView(mView1);
-                final AlertDialog dialog1 = mBuilder1.create();
-                dialog1.show();
-
-                final EditText edtCurrentPass;
-                final EditText edtNewPass;
-                final EditText edtReNewPass;
-                final Button btnSaveNewPass;
-                final Button btnCancelChangePass;
-
-                edtCurrentPass = mView1.findViewById(R.id.edtCurrentPass);
-                edtNewPass = mView1.findViewById(R.id.edtNewPass);
-                edtReNewPass = mView1.findViewById(R.id.edtReNewPass);
-                btnSaveNewPass = mView1.findViewById(R.id.btnSaveNewPass);
-                btnCancelChangePass = mView1.findViewById(R.id.btnCancelChangePass);
-
-                btnCancelChangePass.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog1.dismiss();
-                    }
-                });
-
-                btnSaveNewPass.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        String oldPass = userDAO.getPass(getRootUsername());
-                        String currentPass = edtCurrentPass.getText().toString();
-                        String newPass = edtNewPass.getText().toString();
-                        String reNewPass = edtReNewPass.getText().toString();
-
-                        try {
-                            if (currentPass.isEmpty()) {
-                                Toasty.warning(getContext(), "Vui lòng nhập mật khẩu cũ", Toast.LENGTH_SHORT).show();
-                            } else if (!currentPass.matches(oldPass)) {
-                                Toasty.warning(getContext(), "Vui lòng nhập lại mật khẩu cũ", Toast.LENGTH_SHORT).show();
-                            } else if (newPass.isEmpty() && newPass.length() < 8) {
-                                Toasty.warning(getContext(), "Vui lòng nhập mật khẩu mới có 8 ký tự trở lên", Toast.LENGTH_SHORT).show();
-                            } else if (!reNewPass.equals(newPass)) {
-                                Toasty.warning(getContext(), "Mật khẩu mới không trùng", Toast.LENGTH_SHORT).show();
-                            } else if (currentPass.matches(oldPass)) {
-                                userDAO.updatePass(new User("", newPass, "", "", ""), getRootUsername());
-                                edtCurrentPass.setText("");
-                                edtNewPass.setText("");
-                                edtReNewPass.setText("");
-                                Toasty.success(getContext(), "Lưu mật khẩu mới thành công", Toast.LENGTH_SHORT).show();
-                                dialog1.dismiss();
-
-                            }
-                        } catch (Exception e) {
-                            Toast.makeText(getContext(), "Lỗi " + e, Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+                profilePresenter.ChangePassword();
             }
         });
     }
@@ -300,5 +229,139 @@ public class ProfileFragment extends Fragment {
     public Bitmap convertDrawabletoBitmap(int drawable) {
         Bitmap icon = BitmapFactory.decodeResource(getResources(), drawable);
         return icon;
+    }
+
+    @Override
+    public void MyOrders() {
+        startActivity(new Intent(getContext(), MyOrdersActivity.class));
+    }
+
+    @Override
+    public void ChangePassword() {
+        AlertDialog.Builder mBuilder1 = new AlertDialog.Builder(getContext());
+        View mView1 = View.inflate(getContext(), R.layout.dialog_change_password, null);
+        mBuilder1.setView(mView1);
+        final AlertDialog dialog1 = mBuilder1.create();
+        dialog1.show();
+
+        final EditText edtCurrentPass;
+        final EditText edtNewPass;
+        final EditText edtReNewPass;
+        final Button btnSaveNewPass;
+        final Button btnCancelChangePass;
+
+        edtCurrentPass = mView1.findViewById(R.id.edtCurrentPass);
+        edtNewPass = mView1.findViewById(R.id.edtNewPass);
+        edtReNewPass = mView1.findViewById(R.id.edtReNewPass);
+        btnSaveNewPass = mView1.findViewById(R.id.btnSaveNewPass);
+        btnCancelChangePass = mView1.findViewById(R.id.btnCancelChangePass);
+
+        btnCancelChangePass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog1.dismiss();
+            }
+        });
+
+        btnSaveNewPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String oldPass = userDAO.getPass(getRootUsername());
+                String currentPass = edtCurrentPass.getText().toString();
+                String newPass = edtNewPass.getText().toString();
+                String reNewPass = edtReNewPass.getText().toString();
+                try {
+                    if (currentPass.isEmpty()) {
+                        Toasty.warning(getContext(), "Vui lòng nhập mật khẩu cũ", Toast.LENGTH_SHORT).show();
+                    } else if (!currentPass.matches(oldPass)) {
+                        Toasty.warning(getContext(), "Vui lòng nhập lại mật khẩu cũ", Toast.LENGTH_SHORT).show();
+                    } else if (newPass.isEmpty() && newPass.length() < 8) {
+                        Toasty.warning(getContext(), "Vui lòng nhập mật khẩu mới có 8 ký tự trở lên", Toast.LENGTH_SHORT).show();
+                    } else if (!reNewPass.equals(newPass)) {
+                        Toasty.warning(getContext(), "Mật khẩu mới không trùng", Toast.LENGTH_SHORT).show();
+                    } else if (currentPass.matches(oldPass)) {
+                        userDAO.updatePass(new User("", newPass, "", "", ""), getRootUsername());
+                        edtCurrentPass.setText("");
+                        edtNewPass.setText("");
+                        edtReNewPass.setText("");
+                        Toasty.success(getContext(), "Lưu mật khẩu mới thành công", Toast.LENGTH_SHORT).show();
+                        dialog1.dismiss();
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(getContext(), "Lỗi " + e, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public void ShareFacebook() {
+        shareDialog = new ShareDialog(getActivity());
+        if (ShareDialog.canShow(ShareLinkContent.class)) {
+            ShareLinkContent linkContent = new ShareLinkContent.Builder()
+                    .setContentUrl(Uri.parse("https://www.facebook.com/vuongmeo99"))
+                    .build();
+            ShareDialog.show(getActivity(),linkContent);
+        }
+    }
+
+    @Override
+    public void Voucher() {
+        startActivity(new Intent(getContext(), MyVoucherActivity.class));
+    }
+
+    @Override
+    public void Question() {
+        Intent intent = new Intent(getContext(), QuestionsActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void Shield() {
+        Intent intent = new Intent(getContext(), ShieldsActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void SignOut() {
+        final AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
+        mBuilder.setMessage("Bạn có muốn đăng xuất không?");
+        mBuilder.setCancelable(true);
+        mBuilder.setPositiveButton("Hủy", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        mBuilder.setNegativeButton("Đăng xuất", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(getContext(), LoginActivity.class));
+                getActivity().finish();
+            }
+        });
+        AlertDialog dialog = mBuilder.create();
+        dialog.show();
+    }
+
+    @Override
+    public void CheckCurrentpass() {
+        Toasty.warning(getContext(), "Vui lòng nhập mật khẩu cũ", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void CheckOldpass() {
+        Toasty.warning(getContext(), "Vui lòng nhập lại mật khẩu cũ", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void CheckNewpass() {
+        Toasty.warning(getContext(), "Vui lòng nhập mật khẩu mới có 8 ký tự trở lên", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void CheckRenewpass() {
+        Toasty.warning(getContext(), "Mật khẩu mới không trùng", Toast.LENGTH_SHORT).show();
     }
 }

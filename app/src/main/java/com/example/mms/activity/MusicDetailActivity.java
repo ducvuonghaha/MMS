@@ -10,10 +10,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.databinding.DataBindingUtil;
+
 import com.example.mms.R;
 import com.example.mms.base.BaseActivity;
 import com.example.mms.dao.ProductCartDAO;
 import com.example.mms.dao.ProductDAO;
+import com.example.mms.databinding.ActivityMusicDetailBinding;
 import com.example.mms.interfaces.OrdersView;
 import com.example.mms.model.ProductCart;
 import com.example.mms.presenter.OrdersPresenter;
@@ -40,10 +43,13 @@ public class MusicDetailActivity extends BaseActivity implements OrdersView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_music_detail);
+        ActivityMusicDetailBinding activityMusicDetailBinding = DataBindingUtil.setContentView(this, R.layout.activity_music_detail);
+
+//        setContentView(R.layout.activity_music_detail);
         initView();
 
         ordersPresenter = new OrdersPresenter(this);
+        activityMusicDetailBinding.setValidate(ordersPresenter);
 
         final Intent intent = getIntent();
         final String id = intent.getStringExtra("id");
@@ -70,12 +76,15 @@ public class MusicDetailActivity extends BaseActivity implements OrdersView {
         final String name = intent.getStringExtra("name");
         String price = intent.getStringExtra("price");
         final String description = intent.getStringExtra("description");
-        btnAddProduct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ordersPresenter.validate();
-            }
-        });
+
+//        btnAddProduct.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ordersPresenter.validate();
+//            }
+//        });
+
+
         imgProductDetail.setImageBitmap(ByteArrayToBitmap(image));
         if (tvNameProductDetail != null)
             tvNameProductDetail.setText(name);

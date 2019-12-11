@@ -12,10 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.mms.R;
-import com.example.mms.interfaces.SliderView;
 import com.example.mms.presenter.SliderPresenter;
 
-public class SliderActivity extends AppCompatActivity implements SliderView {
+public class SliderActivity extends AppCompatActivity  {
 
     ViewPager viewPager;
     private LinearLayout mDotsLayout;
@@ -29,10 +28,10 @@ public class SliderActivity extends AppCompatActivity implements SliderView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_slider);
         initView();
-        sliderPresenter = new SliderPresenter(this);
+
         viewPager.setAdapter(sliderAdapter);
         viewPager.addOnPageChangeListener(viewListener);
-        sliderPresenter.addDot(0);
+        addDot(0);
 
     }
 
@@ -45,7 +44,7 @@ public class SliderActivity extends AppCompatActivity implements SliderView {
         }
         @Override
         public void onPageSelected(int i) {
-            sliderPresenter.addDot(i);
+            addDot(i);
         }
         @Override
         public void onPageScrollStateChanged(int i) {
@@ -66,9 +65,8 @@ public class SliderActivity extends AppCompatActivity implements SliderView {
         });
     }
 
-    @Override
-    public void addDot() {
-        int position = 0;
+
+    public void addDot(int position) {
         mDots = new TextView[3];
         mDotsLayout.removeAllViews();
         for (int i = 0; i < mDots.length; i++) {

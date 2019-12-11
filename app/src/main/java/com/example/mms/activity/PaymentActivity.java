@@ -2,11 +2,11 @@ package com.example.mms.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,6 +16,7 @@ import com.example.mms.base.BaseActivity;
 import com.example.mms.dao.MyVoucherDAO;
 import com.example.mms.dao.ProductCartDAO;
 import com.example.mms.dao.UserDAO;
+import com.example.mms.databinding.ActivityPaymentBinding;
 import com.example.mms.interfaces.PaymentsView;
 import com.example.mms.model.ProductCart;
 import com.example.mms.presenter.PaymentPresenter;
@@ -45,9 +46,14 @@ public class PaymentActivity extends BaseActivity implements PaymentsView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_payment);
+
+        ActivityPaymentBinding activityPaymentBinding = DataBindingUtil.setContentView(this, R.layout.activity_payment);
+
+//        setContentView(R.layout.activity_payment);
         initView();
         paymentPresenter = new PaymentPresenter(this);
+        activityPaymentBinding.setCheckVoucher(paymentPresenter);
+        activityPaymentBinding.setOrder(paymentPresenter);
     }
 
     private void initView() {
@@ -64,13 +70,13 @@ public class PaymentActivity extends BaseActivity implements PaymentsView {
         if (tvSumPricePayment != null)
             tvSumPricePayment.setText(decimalFormat.format(tongtien));
 
-        btnCheckVoucher.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                paymentPresenter.checkVoucher();
-            }
-        });
+//        btnCheckVoucher.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                paymentPresenter.checkVoucher();
+//            }
+//        });
 
 
         try {
@@ -91,13 +97,13 @@ public class PaymentActivity extends BaseActivity implements PaymentsView {
         rvPayment.setLayoutManager(linearLayoutManager);
         rvPayment.setAdapter(paymentAdapter);
         paymentAdapter.notifyDataSetChanged();
-        btnOrder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                paymentPresenter.orders();
-            }
-        });
+//        btnOrder.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                paymentPresenter.orders();
+//            }
+//        });
     }
 
     private String getRootUsername() {

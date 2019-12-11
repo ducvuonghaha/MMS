@@ -23,4 +23,10 @@ public class LoginPresenter {
 
         }
     }
+
+    public void SignUp() {
+        loginView.SignUp();
+    }
+
+
 }

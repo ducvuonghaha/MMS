@@ -130,6 +130,7 @@ public class Home2Activity extends BaseActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout2, new Home2Fragment()).commit();
         productDAO = new ProductDAO(this);
 
+        //Pop
         Bitmap mms = convertDrawabletoBitmap(R.drawable.maimailamotloinoidoi_m);
 
         byte[] maimailamotloinoidoi_m = setByteArray(mms);
