@@ -365,7 +365,7 @@
             android:background="#2C5364"
             android:id="@+id/rvMusic2"
             android:layout_width="match_parent"
-            android:layout_height="800dp"
+            android:layout_height="1850dp"
             android:layout_below="@id/liner">
 
         </androidx.recyclerview.widget.RecyclerView>

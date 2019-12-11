@@ -180,15 +180,18 @@ public class HomeActivity extends BaseActivity {
         Bitmap mms7 = convertDrawabletoBitmap(R.drawable.ngoilanghanhphuc_f);
         Bitmap mms8 = convertDrawabletoBitmap(R.drawable.cauchuyenhonnhan_f);
         Bitmap mms9 = convertDrawabletoBitmap(R.drawable.covophuthuy_f);
+        Bitmap mms10 = convertDrawabletoBitmap(R.drawable.comedy_f);
 
 
         byte[] ngoilanghanhphuc_f = setByteArray(mms7);
         byte[] cauchuyenhonnhan_f = setByteArray(mms8);
         byte[] covophuthuy_f = setByteArray(mms9);
+        byte[] comedy_f = setByteArray(mms10);
 
 
         productDAO.insertProduct(new Product("ID10", "Ngôi làng hạnh phúc", "Hài Hước", "Hot",
-                100, 450000, ngoilanghanhphuc_f, "ngoilanghanhphuc", "Bob là chú hải ly có cuộc sống rập khuôn hơn bao người bạn khác trong rừng. Cuộc sống của Bob vốn bình dị cho đến khi chú mèo Max xuất hiện. Khác với Bob, Max là chú mèo tràn đầy năng, luôn mơ ước một ngày mình là người nổi tiếng khắp thế giới. Kể từ ngày Max xuất hiện, cuộc sống Bob như bị đảo ngược."));
+                100, 450000, ngoilanghanhphuc_f, "ngoilanghanhphuc",
+                "Bob là chú hải ly có cuộc sống rập khuôn hơn bao người bạn khác trong rừng. Cuộc sống của Bob vốn bình dị cho đến khi chú mèo Max xuất hiện. Khác với Bob, Max là chú mèo tràn đầy năng, luôn mơ ước một ngày mình là người nổi tiếng khắp thế giới. Kể từ ngày Max xuất hiện, cuộc sống Bob như bị đảo ngược."));
 
         productDAO.insertProduct(new Product("ID11", "Câu chuyện hôn nhân", "Hài Hước", "Hot",
                 100, 350000, cauchuyenhonnhan_f, "cauchuyenhonnhan", "Bộ phim có cái nhìn sâu sắc và đồng cảm về một cuộc hôn nhân tan vỡ và một gia đình gắn bó bên nhau. Một tác phẩm của Noah Baumbach – đạo diễn từng được đề cử Oscar."));
@@ -197,8 +200,10 @@ public class HomeActivity extends BaseActivity {
                 100, 750000, covophuthuy_f, "covophuthuy", "Isabel vốn là một cô phù thuỷ chân chất đang cố gắng bịa đặt về thân thế của chính mình. Cô chối bỏ sức mạnh siêu nhiên của một phù thuỷ và mong muốn sống một cuộc đời bình dị. Cùng khu phố với cô là anh chàng Jack Wyatt, một nam diễn viên đẹp trai, tài năng đang thực hiện một bộ phim của chính mình dựa theo nguyên tác Bewitch - bộ phim hài tình cảm nổi tiếng của thập niên 1960, trong đó Jack sẽ thủ vai chính.\n" +
                 "Định mệnh xui khiến khi Jack vô tình gặp Isabel. Anh ngay lập tức bị cô hút hồn với cái mũi giống của Elizabeth Montgomery - người đóng vai nữ chính Samantha trong phiên bản gốc bộ phim Bewitched"));
 
-//        productDAO.insertProduct(new Product("ID07", "Căn bệnh quái ác", "Kinh Dị", "Normal",
-//                100, 450000, canbenhquaiac_f, "canbenhquaiac", ""));
+        productDAO.insertProduct(new Product("ID13", "Hài hước", "Hài Hước", "Normal",
+                100, 450000, comedy_f, "covophuthuy",
+                "Bob là chú hải ly có cuộc sống rập khuôn hơn bao người bạn khác trong rừng. Cuộc sống của Bob vốn bình dị cho đến khi chú mèo Max xuất hiện. Khác với Bob, Max là chú mèo tràn đầy năng, luôn mơ ước một ngày mình là người nổi tiếng khắp thế giới. Kể từ ngày Max xuất hiện, cuộc sống Bob như bị đảo ngược."));
+
 //
 //        productDAO.insertProduct(new Product("ID07", "Căn bệnh quái ác", "Kinh Dị", "Normal",
 //                100, 450000, canbenhquaiac_f, "canbenhquaiac", ""));
@@ -211,11 +216,13 @@ public class HomeActivity extends BaseActivity {
         Bitmap mms13 = convertDrawabletoBitmap(R.drawable.thegioingamwaaji_f);
         Bitmap mms14 = convertDrawabletoBitmap(R.drawable.nguoichuyenphatnhanh_f);
         Bitmap mms15 = convertDrawabletoBitmap(R.drawable.tudiabaothu_f);
+        Bitmap mms16 = convertDrawabletoBitmap(R.drawable.action_f);
 
 
         byte[] thegioingamwaaji_f = setByteArray(mms13);
         byte[] nguoichuyenphatnhanh_f = setByteArray(mms14);
         byte[] tudiabaothu_f = setByteArray(mms15);
+        byte[] action_f = setByteArray(mms16);
 
         productDAO.insertProduct(new Product("ID016", "Thế giới ngầm Waaji", "Hành Động", "Hot",
         100, 350000, thegioingamwaaji_f, "thegioingamwaaji", "Một cảnh sát chìm trở nên bị lôi kéo vào một trận chiến với những tên tội phạm đang gây chiến muốn giành được “hộp đen”, chìa khóa cuối cùng của họ đối với một kho báu."));
@@ -224,11 +231,14 @@ public class HomeActivity extends BaseActivity {
                 100, 450000, nguoichuyenphatnhanh_f, "nguoichuyenphatnhanh", "Bộ phim Người Chuyển Phát Nhanh hành động dữ dội này mở ra trong thời gian thực khi hai linh hồn bị lôi kéo chiến đấu cho cuộc sống của họ. Người chiến thắng giải thưởng Viện hàn lâm (R) Gary Oldman (nhượng quyền của Hiệp sĩ bóng đêm) đóng vai một tên trùm tội phạm độc ác ra tay để giết Nick, nhân chứng đơn độc được thiết lập để làm chứng chống lại anh ta"));
 
         productDAO.insertProduct(new Product("ID018", "Tử địa báo thù", "Hành Động", "Normal",
-                100, 250000, tudiabaothu_f, "tudiabaothu", "40 tuổi, sát thủ hàng đầu Roy Cady bị chuẩn đoán mắc bệnh ung thư. Trước sự việc này, các ông trùm quyết định thủ tiêu Roy càng nhanh càng tốt vì anh đang nắm giữ quá nhiều bí mật của bọn chúng."));
+                100, 250000, tudiabaothu_f, "tudiabaothu",
+                "40 tuổi, sát thủ hàng đầu Roy Cady bị chuẩn đoán mắc bệnh ung thư. Trước sự việc này, các ông trùm quyết định thủ tiêu Roy càng nhanh càng tốt vì anh đang nắm giữ quá nhiều bí mật của bọn chúng."));
 
-//        productDAO.insertProduct(new Product("ID07", "Căn bệnh quái ác", "Kinh Dị", "Normal",
-//                100, 450000, canbenhquaiac_f, "canbenhquaiac", ""));
-//
+        productDAO.insertProduct(new Product("ID019", "Hành động", "Hành Động", "Normal",
+                100, 450000, canbenhquaiac_f, "canbenhquaiac",
+                "40 tuổi, sát thủ hàng đầu Roy Cady bị chuẩn đoán mắc bệnh ung thư. Trước sự việc này, các ông trùm quyết định thủ tiêu Roy càng nhanh càng tốt vì anh đang nắm giữ quá nhiều bí mật của bọn chúng."));
+
+
 //        productDAO.insertProduct(new Product("ID07", "Căn bệnh quái ác", "Kinh Dị", "Normal",
 //                100, 450000, canbenhquaiac_f, "canbenhquaiac", ""));
 //
@@ -240,11 +250,13 @@ public class HomeActivity extends BaseActivity {
         Bitmap mms19 = convertDrawabletoBitmap(R.drawable.tiphugapnan_f);
         Bitmap mms20 = convertDrawabletoBitmap(R.drawable.huongvitra_f);
         Bitmap mms21 = convertDrawabletoBitmap(R.drawable.hiepsigiangsinh_f);
+        Bitmap mms22 = convertDrawabletoBitmap(R.drawable.science_f);
 
 
         byte[] tiphugapnan_f = setByteArray(mms19);
         byte[] huongvitra_f = setByteArray(mms20);
         byte[] hiepsigiangsinh_f = setByteArray(mms21);
+        byte[] science_f = setByteArray(mms22);
 
 
         productDAO.insertProduct(new Product("ID022", "Tỉ phú gặp nạn", "Khoa Học", "Hot",
@@ -254,10 +266,13 @@ public class HomeActivity extends BaseActivity {
                 100, 250000, huongvitra_f, "huongvitra", "Bộ phim xoay quanh câu chuyện về gia đình Haruno sống trong một căn nhà cổ, ở một vùng nông thôn ngoại thành Tokyo, nơi mà vẻ đẹp thiên nhiên vẫn còn ngự trị. Haruno là kiểu gia đình thường gặp ở nước Nhật, hai đứa trẻ ngày ngày tới trường, người cha đi làm, người mẹ làm nội trợ, và ông nội sống chung với cả nhà."));
 
         productDAO.insertProduct(new Product("ID024", "Hiệp sĩ giáng sinh", "Khoa Học", "Normal",
-                100, 350000, hiepsigiangsinh_f, "hiepsigiangsinh", "Phép thuật trung cổ đưa vị hiệp sĩ thế kỷ 14 đến Ohio thời hiện đại – nơi anh phải lòng một giáo viên khoa học trung học đã vỡ mộng về tình yêu."));
+                100, 350000, hiepsigiangsinh_f, "hiepsigiangsinh",
+                "Phép thuật trung cổ đưa vị hiệp sĩ thế kỷ 14 đến Ohio thời hiện đại – nơi anh phải lòng một giáo viên khoa học trung học đã vỡ mộng về tình yêu."));
 
-//        productDAO.insertProduct(new Product("ID07", "Căn bệnh quái ác", "Kinh Dị", "Normal",
-//                100, 450000, canbenhquaiac_f, "canbenhquaiac", ""));
+        productDAO.insertProduct(new Product("ID025", "Khoa học", "Khoa Học", "Normal",
+                100, 450000, science_f, "canbenhquaiac",
+                "Phép thuật trung cổ đưa vị hiệp sĩ thế kỷ 14 đến Ohio thời hiện đại – nơi anh phải lòng một giáo viên khoa học trung học đã vỡ mộng về tình yêu."));
+
 //
 //        productDAO.insertProduct(new Product("ID07", "Căn bệnh quái ác", "Kinh Dị", "Normal",
 //                100, 450000, canbenhquaiac_f, "canbenhquaiac", ""));
@@ -270,11 +285,13 @@ public class HomeActivity extends BaseActivity {
         Bitmap mms2 = convertDrawabletoBitmap(R.drawable.dieubamekhongke_f);
         Bitmap mms25 = convertDrawabletoBitmap(R.drawable.chuyentinhchungtoi_f);
         Bitmap mms26 = convertDrawabletoBitmap(R.drawable.giongloaibidiet_f);
+        Bitmap mms27 = convertDrawabletoBitmap(R.drawable.romantic_f);
 
 
         byte[] dieubamekhongke_f = setByteArray(mms2);
         byte[] chuyentinhchungtoi_f = setByteArray(mms25);
         byte[] giongloaibidiet_f = setByteArray(mms26);
+        byte[] romantic_f = setByteArray(mms27);
 
         productDAO.insertProduct(new Product("ID03", "Điều Ba Mẹ Không Kể", "Lãng Mạn","Hot",
                 100, 269000, dieubamekhongke_f,"dieubamekhongke","Cho Nam-bong và Lee Mae-ja là cặp vợ chồng già cùng mắc căn bệnh mất trí nhớ. Sau 45 năm chung sống, họ chẳng thể nhớ lần cuối mình từng hạnh phúc là khi nào. Tuy nhiên, khi ký ức dần mất đi, tình yêu và ước mơ từng bị bỏ quên của họ lại dần nhen nhóm lại."));
@@ -283,11 +300,14 @@ public class HomeActivity extends BaseActivity {
                 100, 240000, chuyentinhchungtoi_f, "chuyentinhchungtoi", "Câu chuyện về cặp đôi Primo và George, họ đã có mối quan hệ lâu dài và đang trong quá trình xây dựng tương lai cùng với nhau. Nhưng tình yêu của họ bị thử thách khi phải đối mặt với những trở ngại - từ sự hiểu lầm đến những con đường sự nghiệp khác nhau."));
 
         productDAO.insertProduct(new Product("ID029", "Giống loài bị diệt", "Lãng Mạn", "Normal",
-                100, 150000, giongloaibidiet_f, "giongloaibidiet", "Tina là một phụ nữ xấu xí, có khả năng đánh hơi kỳ dị để phát hiện cảm xúc của người khác. Cô hỗ trợ cho cảnh sát trong chuyên án phá đường dây phim ấu dâm.\n" +
+                100, 150000, giongloaibidiet_f, "giongloaibidiet",
+                "Tina là một phụ nữ xấu xí, có khả năng đánh hơi kỳ dị để phát hiện cảm xúc của người khác. Cô hỗ trợ cho cảnh sát trong chuyên án phá đường dây phim ấu dâm.\n" +
                 "Một ngày nọ, cô gặp Vore - một người đàn ông có vẻ ngoài và khả năng tương tự. Họ bắt đầu một mối quan hệ đầy bản năng. Từ đó cô phát hiện ra nguồn gốc của bản thân, cũng như những điều kì lạ trong cơ thể của mình"));
-//
-//        productDAO.insertProduct(new Product("ID07", "Căn bệnh quái ác", "Kinh Dị", "Normal",
-//                100, 450000, canbenhquaiac_f, "canbenhquaiac", ""));
+
+        productDAO.insertProduct(new Product("ID030", "Lãng mạn", "Lãng Mạn", "Normal",
+                100, 450000, romantic_f, "canbenhquaiac",
+                "Tina là một phụ nữ xấu xí, có khả năng đánh hơi kỳ dị để phát hiện cảm xúc của người khác. Cô hỗ trợ cho cảnh sát trong chuyên án phá đường dây phim ấu dâm.\n" +
+                        "Một ngày nọ, cô gặp Vore - một người đàn ông có vẻ ngoài và khả năng tương tự. Họ bắt đầu một mối quan hệ đầy bản năng. Từ đó cô phát hiện ra nguồn gốc của bản thân, cũng như những điều kì lạ trong cơ thể của mình"));
 
 //        productDAO.insertProduct(new Product("ID07", "Căn bệnh quái ác", "Kinh Dị", "Normal",
 //                100, 450000, canbenhquaiac_f, "canbenhquaiac", ""));
@@ -301,10 +321,12 @@ public class HomeActivity extends BaseActivity {
         Bitmap mms30 = convertDrawabletoBitmap(R.drawable.truytimbigfoot_f);
         Bitmap mms31 = convertDrawabletoBitmap(R.drawable.timlaichinhminh_f);
         Bitmap mms32 = convertDrawabletoBitmap(R.drawable.congxuonghoaky_f);
+        Bitmap mms33 = convertDrawabletoBitmap(R.drawable.document_f);
 
         byte[] truytimbigfoot_f = setByteArray(mms30);
         byte[] timlaichinhminh_f = setByteArray(mms31);
         byte[] congxuonghoaky_f = setByteArray(mms32);
+        byte[] document_f = setByteArray(mms33);
 
         productDAO.insertProduct(new Product("ID033", "Truy tìm Big Foot", "Tài Liệu", "Hot",
                 100, 650000, truytimbigfoot_f, "truytimbigfoot", "Theo chân Todd Standing, tiến sĩ Jeffrey Meldrum và các nhà nghiên cứu khác tiến vào vùng hoang dã với nỗ lực tìm ra bằng chứng xác thực về sự tồn tại của Chân to"));
@@ -313,7 +335,13 @@ public class HomeActivity extends BaseActivity {
                 100, 350000, timlaichinhminh_f, "timlaichinhminh", "Alex bị mất trí nhớ và tin tưởng câu chuyện quá khứ do anh sinh đôi Marcus kể lại. Nhưng Marcus đang che giấu một bí mật gia đình đen tối..."));
 
         productDAO.insertProduct(new Product("ID035", "Công xưởng Hoa Kỳ", "Tài Liệu", "Normal",
-                100, 450000, congxuonghoaky_f, "congxuonghoaky", "Bối cảnh phim xảy ra vào năm 2014, khi một tỉ phú Trung Quốc mở nhà máy Fuyao tại nơi hãng xe hơi General Motors từng đặt nhà máy ở thành phố Dayton, bang Ohio tạo ra hàng ngàn công việc cho người dân địa phương."));
+                100, 450000, congxuonghoaky_f, "congxuonghoaky",
+                "Bối cảnh phim xảy ra vào năm 2014, khi một tỉ phú Trung Quốc mở nhà máy Fuyao tại nơi hãng xe hơi General Motors từng đặt nhà máy ở thành phố Dayton, bang Ohio tạo ra hàng ngàn công việc cho người dân địa phương."));
+
+        productDAO.insertProduct(new Product("ID036", "Tài liệu", "Tài Liệu", "Normal",
+                100, 450000, document_f, "canbenhquaiac",
+                "Bối cảnh phim xảy ra vào năm 2014, khi một tỉ phú Trung Quốc mở nhà máy Fuyao tại nơi hãng xe hơi General Motors từng đặt nhà máy ở thành phố Dayton, bang Ohio tạo ra hàng ngàn công việc cho người dân địa phương."));
+
 
 //        productDAO.insertProduct(new Product("ID07", "Căn bệnh quái ác", "Kinh Dị", "Normal",
 //                100, 450000, canbenhquaiac_f, "canbenhquaiac", ""));
@@ -321,9 +349,9 @@ public class HomeActivity extends BaseActivity {
 //        productDAO.insertProduct(new Product("ID07", "Căn bệnh quái ác", "Kinh Dị", "Normal",
 //                100, 450000, canbenhquaiac_f, "canbenhquaiac", ""));
 
-//        productDAO.insertProduct(new Product("ID07", "Căn bệnh quái ác", "Kinh Dị", "Normal",
-//                100, 450000, canbenhquaiac_f, "canbenhquaiac", ""));
-}
+
+
+    }
 
 
 

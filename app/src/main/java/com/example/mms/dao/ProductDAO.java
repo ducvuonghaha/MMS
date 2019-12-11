@@ -146,6 +146,7 @@ public class ProductDAO {
                     courseList.add(product);
                     //di chuyen toi vi tri tiep theo
                     cursor.moveToNext();
+
                 }
                 cursor.close();
                 sqLiteDatabase.close();

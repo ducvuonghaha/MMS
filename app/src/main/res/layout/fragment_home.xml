@@ -417,7 +417,7 @@
             android:id="@+id/rvWakaDeal"
             android:layout_width="match_parent"
             android:background="#2C5364"
-            android:layout_height="1800dp"
+            android:layout_height="1850dp"
             android:layout_below="@id/liner">
 
         </androidx.recyclerview.widget.RecyclerView>

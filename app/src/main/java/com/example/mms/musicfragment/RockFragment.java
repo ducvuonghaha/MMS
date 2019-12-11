@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mms.R;
-import com.example.mms.adapter.MMSDealsAdapter;
+import com.example.mms.adapter.MusicDealAdapter;
 import com.example.mms.dao.ProductDAO;
 import com.example.mms.model.Product;
 
@@ -25,7 +25,7 @@ import java.util.List;
 public class RockFragment extends Fragment {
     private GridLayoutManager gridLayoutManager;
     private ProductDAO productDAO;
-    private MMSDealsAdapter mmsDealsAdapter;
+    private MusicDealAdapter musicDealAdapter;
     private List<Product> productList;
     private RecyclerView rvMovieDeals;
     private Spinner spnSortMovie;
@@ -76,12 +76,12 @@ public class RockFragment extends Fragment {
 
     private void showProduct(List productArrayLisst) {
         productList = productArrayLisst;
-        mmsDealsAdapter = new MMSDealsAdapter(getContext(), productList);
-        rvMovieDeals.setAdapter(mmsDealsAdapter);
+        musicDealAdapter = new MusicDealAdapter(getContext(), productList);
+        rvMovieDeals.setAdapter(musicDealAdapter);
         rvMovieDeals.setLayoutManager(gridLayoutManager);
         rvMovieDeals.setHasFixedSize(true);
         rvMovieDeals.scheduleLayoutAnimation();
         rvMovieDeals.setNestedScrollingEnabled(false);
-        mmsDealsAdapter.notifyDataSetChanged();
+        musicDealAdapter.notifyDataSetChanged();
     }
 }
